@@ -1,19 +1,33 @@
 import './assets/css/App.css';
-import LoginPage from './views/Login';
+import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import LoginView from './pages/Login';
+import DashboardView from './pages/Dashboard';
+import { DashboardRoute, LoginRoute } from './path';
+
 
 function App() {
 
-  const title = "Hey there"
+  const DashboardPath = DashboardRoute()
+  const LoginPath = LoginRoute()
 
 
   // The return render  
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>{title}</h1>
-        <LoginPage/>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+
+          {/* Dashboard  */}
+          <Route exact path={DashboardPath} element={<DashboardView/>}/>
+
+           {/* Login  */}
+           <Route exact path={LoginPath} element={<LoginView/>}/>
+
+
+
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
