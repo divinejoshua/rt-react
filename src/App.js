@@ -1,4 +1,5 @@
-import './App.css';
+import './assets/css/App.css';
+import LoginPage from './views/login';
 
 function App() {
 
@@ -9,9 +10,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-
         <h1>{title}</h1>
-        
+        <LoginPage/>
       </header>
     </div>
   );
