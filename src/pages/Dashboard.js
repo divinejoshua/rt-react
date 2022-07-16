@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { LoginRoute } from './path';
+import { LoginRoute } from '../path';
 
 export default function DashboardView() {
 
