@@ -8,8 +8,16 @@ export default function LoginView() {
 
 const [isLoading, setisLoading] = useState(false);
 
+// Form Details
+const [formEmail, setformEmail] = useState("");
+const [formPassword, setformPassword] = useState("");
+
 const { register, handleSubmit } = useForm();
-  const handleRegistration = (data) => console.log(data);
+
+// Login Function
+const handleLogin = (data) => { 
+  console.log(data);
+}
 
 
 
@@ -41,11 +49,11 @@ useEffect(() => {
             </div>
 
         {/* The form  */}
-          <form onsubmit={handleSubmit}>
+          <form onSubmit={handleSubmit(handleLogin)}>
 
             <div className='mt-8'>
               <label className="mt-8 text-secondary">Email address</label>
-              <input type="email" autoFocus name="email" autoComplete="off"  aria-autocomplete="off" placeholder="afolabi@email.com"
+              <input type="email" autoFocus name="email" autoComplete="off"  aria-autocomplete="off" placeholder="afolabi@email.com" {...register('email')}
                   className="mt-3 form-control w-full pl-6 border border-gray-300
                   focus:outline-none focus:border-default
                   focus:ring-default
@@ -59,7 +67,7 @@ useEffect(() => {
 
             <div className='mt-8'>
               <label className="mt-8 text-secondary">Password</label>
-              <input type="password" name="password" autoComplete="off"  aria-autocomplete="off" placeholder="Enter password"
+              <input type="password" name="password" autoComplete="off"  aria-autocomplete="off" placeholder="Enter password" {...register('password')}
                   className="mt-3 form-control w-full pl-6 border border-gray-300
                   focus:outline-none focus:border-default
                   focus:ring-default
