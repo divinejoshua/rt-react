@@ -7,24 +7,42 @@ export default function LoginView() {
   
 
 const [isLoading, setisLoading] = useState(false);
-
-// Form Details
-const [formEmail, setformEmail] = useState("");
-const [formPassword, setformPassword] = useState("");
+const [isDisabled, setisDisabled] = useState(false);
 
 // React hook form 
 const { register, handleSubmit, formState: { errors }  } = useForm();
 const handleError = (errors) => {};
 
+
 // Login Function
-const handleLogin = (data) => { 
+const handleLogin = (data) => {
+
+  // Submit the form...This is to Simulate an api call for 3 seconds 
+  setisLoading(true)
+  setisDisabled(true)
+
+  setTimeout(() => { 
+    setisLoading(false)
+    setisDisabled(false)
+  }, 3000)
+
+  // Submit 
   console.log(data);
 }
 
 
+
+
+
+
 // Form validation 
 const formValidation = {
-  email: { required: "Email is required" },
+  email: { required: "Email is required" ,
+    pattern: {
+      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+      message: "Enter a valid email address"
+    }
+  },
   password: {required: "Password is required",}
 };
 
@@ -56,7 +74,7 @@ useEffect(() => {
             </div>
 
         {/* The form  */}
-          <form onSubmit={handleSubmit(handleLogin, handleError)}>
+          <form onSubmit={handleSubmit(handleLogin, handleError)} noValidate>
 
             <div className='mt-8'>
               <label className="mt-8 text-secondary">Email address</label>
@@ -68,6 +86,14 @@ useEffect(() => {
                   focus:border-100
                   transition duration-0 hover:duration-150
                 " />
+
+                {/* If errors  */}
+                {errors?.email && 
+                  <div className="absolute text-red-500 float-left font-size-small pt-1">
+                    {errors.email.message}
+                  </div>
+                }
+              
 
             </div>
 
@@ -83,12 +109,20 @@ useEffect(() => {
                   transition duration-0 hover:duration-150
                 " />
 
+                {/* If errors  */}
+                {errors?.password && 
+                  <div className="absolute text-red-500 float-left font-size-small pt-1">
+                    {errors.password.message}
+                  </div>
+                }
+
+
             </div>
 
-            <p className="mt-8 font-color-777 font-size-small">Forgot Password? <Link className="text-default underline decoration-default" to="/">Reset it here</Link></p>
+            <p className="mt-10 font-color-777 font-size-small">Forgot Password? <Link className="text-default underline decoration-default" to="/">Reset it here</Link></p>
 
 
-            {errors?.password && errors.password.message}
+            {/* {errors?.password && errors.password.message} */}
 
 
 
