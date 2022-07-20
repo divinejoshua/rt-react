@@ -1,30 +1,30 @@
-import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-
-export default function DashboardView() {
+import { useEffect } from 'react';
+import { Link, useParams, useSearchParams } from 'react-router-dom'
 
 
+export default function LoginView() {
+  
+
+  const {id} = useParams()
+  const [searchParams, setSearchParams] = useSearchParams()
 
 
-  const navigate = useNavigate();
 
-  const handleClick = () => {
-    // 👇️ navigate programmatically
-    navigate({pathname: '/accounts/login', search: '?query=abc&page=25'});
-  };
-
-
+useEffect(() => {
+  console.log("login")
+  return () => {
+    
+  }
+}, [])
 
   return (
-    <div className="page-wrapper">
-      
-        <h1>This is the Dashboard page1</h1>
-        <Link to="/accounts/register">Register</Link>
+    // Main view 
+    <div>
+        <h1>This is the login page</h1>
 
-        <h1 className="text-3xl text-default font-bold underline">
-        Hello world!
-        </h1>
-
+        <p>{id}</p>
+        <p>{searchParams.get('query')}</p>
+     
 
 <br></br>
 <br></br>
@@ -53,10 +53,8 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
         <br/>
         <br/>
 
-      
-        <button onClick={handleClick}>Navigate to Login</button>
-{/* </UseEffectHook> */}
+        <Link to="/">Home</Link>
+
     </div>
-    
   )
 }

@@ -1,27 +1,40 @@
 import './assets/css/App.css';
-import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
-import LoginView from './pages/Login';
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import LoginView from './pages/Accounts/Login';
+import RegisterView from './pages/Accounts/Register';
 import DashboardView from './pages/Dashboard';
-import { DashboardRoute, LoginRoute } from './path';
+import PageNotFound from './pages/Error/404';
+
+import UseEffectHook from "./components/UseEffectHook";
 
 
 function App() {
 
-  const DashboardPath = DashboardRoute()
-  const LoginPath = LoginRoute()
+
 
 
   // The return render  
   return (
     <Router>
+      <UseEffectHook/>
+
       <div className="App">
         <Routes>
 
           {/* Dashboard  */}
-          <Route exact path={DashboardPath} element={<DashboardView/>}/>
+          <Route path="/" element={<DashboardView/>}/>
 
-           {/* Login  */}
-           <Route exact path={LoginPath} element={<LoginView/>}/>
+          {/* Login  */}
+          <Route path="/accounts/login" element={<LoginView/>}/>
+
+
+          {/* Register  */}
+          <Route path="/accounts/register" element={<RegisterView/>}/>
+
+          {/* <Route path="accounts/login/:id" element={<LoginView/>}/> Optional Paramater */}
+
+          {/* 404  */}
+          <Route path="*" element={<PageNotFound/>}/>
 
 
 

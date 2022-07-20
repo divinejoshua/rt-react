@@ -46,3 +46,27 @@ export default LeftTab;
     
 //   )
 // }
+
+// import { Link, useParams, useSearchParams } from 'react-router-dom'
+// import { DashboardRoute } from '../path';
+
+// export default function LoginView() {
+  
+//   const DashboardPath = DashboardRoute()
+
+//   const {id} = useParams()
+//   const [searchParams, setSearchParams] = useSearchParams()
+
+
+//   return (
+//     // Main view 
+//     <div>
+//         <h1>This is the login page</h1>
+//         <Link to={DashboardPath}>Home</Link>
+
+//         <p>{id}</p>
+//         <p>{searchParams.get('query')}</p>
+//     </div>
+//   )
+// }
+
