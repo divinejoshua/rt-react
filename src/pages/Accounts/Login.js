@@ -12,7 +12,9 @@ const [isLoading, setisLoading] = useState(false);
 const [formEmail, setformEmail] = useState("");
 const [formPassword, setformPassword] = useState("");
 
-const { register, handleSubmit } = useForm();
+// React hook form 
+const { register, handleSubmit, formState: { errors }  } = useForm();
+const handleError = (errors) => {};
 
 // Login Function
 const handleLogin = (data) => { 
@@ -20,6 +22,10 @@ const handleLogin = (data) => {
 }
 
 
+const formValidation = {
+  email: { required: "Email is required" },
+  password: {required: "Password is required",}
+};
 
 
 useEffect(() => {
@@ -49,11 +55,11 @@ useEffect(() => {
             </div>
 
         {/* The form  */}
-          <form onSubmit={handleSubmit(handleLogin)}>
+          <form onSubmit={handleSubmit(handleLogin, handleError)}>
 
             <div className='mt-8'>
               <label className="mt-8 text-secondary">Email address</label>
-              <input type="email" autoFocus name="email" autoComplete="off"  aria-autocomplete="off" placeholder="afolabi@email.com" {...register('email')}
+              <input type="email" autoFocus name="email" autoComplete="off"  aria-autocomplete="off" placeholder="afolabi@email.com" {...register('email', formValidation.email)}
                   className="mt-3 form-control w-full pl-6 border border-gray-300
                   focus:outline-none focus:border-default
                   focus:ring-default
@@ -67,7 +73,7 @@ useEffect(() => {
 
             <div className='mt-8'>
               <label className="mt-8 text-secondary">Password</label>
-              <input type="password" name="password" autoComplete="off"  aria-autocomplete="off" placeholder="Enter password" {...register('password')}
+              <input type="password" name="password" autoComplete="off"  aria-autocomplete="off" placeholder="Enter password" {...register('password', formValidation.password)}
                   className="mt-3 form-control w-full pl-6 border border-gray-300
                   focus:outline-none focus:border-default
                   focus:ring-default
@@ -79,6 +85,11 @@ useEffect(() => {
             </div>
 
             <p className="mt-8 font-color-777 font-size-small">Forgot Password? <Link className="text-default underline decoration-default" to="/">Reset it here</Link></p>
+
+
+            {errors?.password && errors.password.message}
+
+
 
             <div className="mt-3">
               <button 
