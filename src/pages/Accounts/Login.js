@@ -1,16 +1,9 @@
 import { useEffect } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom'
-
+import AuthSidebar from '../../components/AuthSidebar';
 
 export default function LoginView() {
   
-
-  const {id} = useParams()
-  const [searchParams, setSearchParams] = useSearchParams()
-
-  
-{/* <p>{id}</p>
-<p>{searchParams.get('query')}</p> */}
 
 useEffect(() => {
   console.log("login")
@@ -22,6 +15,9 @@ useEffect(() => {
   return (
     // Main view 
     <div>
+      
+      {/* The sidebar  */}
+      <AuthSidebar/>
 
 
     </div>

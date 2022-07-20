@@ -22,11 +22,11 @@ module.exports = {
       },
     },
     fontFamily: {
-      'sans': ['Poppins', 'Poppins',],
-      'serif': ['Poppins', 'Poppins',],
-      'mono': ['Poppins', 'Poppins',],
-      'display': ['Poppins', ],
-      'body': ['"Poppins"',],
+      'sans': ['DM Sans', 'DM Sans',],
+      'serif': ['DM Sans', 'DM Sans',],
+      'mono': ['DM Sans', 'DM Sans',],
+      'display': ['DM Sans', ],
+      'body': ['"DM Sans"',],
     }
   },
   variants: {

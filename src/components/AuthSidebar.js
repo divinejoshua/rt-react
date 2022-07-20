@@ -1,7 +1,12 @@
 import React from 'react'
 
+import authlogo from '../assets/icons/authlogo.svg'
+
 export default function AuthSidebar() {
   return (
-    <div>AuthSidebar</div>
+    <div className='authsidebar'>
+    <img src={authlogo} />
+        
+    </div>
   )
 }

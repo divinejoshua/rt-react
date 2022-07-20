@@ -70,3 +70,13 @@ export default LeftTab;
 //   )
 // }
 
+
+
+
+
+// const {id} = useParams()
+// const [searchParams, setSearchParams] = useSearchParams()
+
+
+// {/* <p>{id}</p>
+// <p>{searchParams.get('query')}</p> */}
