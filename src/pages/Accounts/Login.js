@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form"
 
 export default function LoginView() {
   
-
+//STATES
 const [isLoading, setisLoading] = useState(false);
 const [isDisabled, setisDisabled] = useState(false);
 const [formAuthBtnError, setformAuthBtnError] = useState(false);
@@ -15,6 +15,8 @@ const [firstValidation, setfirstValidation] = useState(false);
 const { register, handleSubmit, formState: { errors, isValid }  } = useForm({mode: 'all'});
 
 
+
+// METHODS
 // Login Function on success
 const handleLogin = (data) => {
 
@@ -47,8 +49,6 @@ const handleError = (errors) => {
   
 };
 
-
-
 // Form validation 
 const formValidation = {
   email: { required: "Email is required" ,
@@ -61,7 +61,7 @@ const formValidation = {
 };
 
 
-// Use effect 
+//USE EFFECT
 useEffect(() => {
   console.log("login")
 
