@@ -119,12 +119,12 @@ useEffect(() => {
             {/* Input  */}
             <div className='mt-8'>
               <label className="mt-8 text-secondary">Password</label>
-              <div class="relative">
+              <div className="relative">
                 <input type={showPassword ? "text" : "password"} name="password" autoComplete="off"  aria-autocomplete="off" placeholder="Enter password" {...register('password', formValidation.password)}
                     className={(errors.password && firstValidation ? 'border-red-500 none' : '') + "none mt-3 form-control w-full pl-6 border border-gray-300 focus:outline-none focus:border-default focus:ring-default focus:ring-0.5 focus:border-100 transition duration-0 hover:duration-150"}
                 />
-                <div class="absolute inset-y-2 right-0 pr-3 pt-4 cursor-pointer flex items-center text-sm leading-5" onClick={() => setshowPassword(!showPassword)}>
-                      <span v-if="show" class="mr-3 text-sm font-color-777">{showPassword ? "Hide" : "Show"}</span>
+                <div className="absolute inset-y-2 right-0 pr-3 pt-4 cursor-pointer flex items-center text-sm leading-5" onClick={() => setshowPassword(!showPassword)}>
+                      <span v-if="show" className="mr-3 text-sm font-color-777">{showPassword ? "Hide" : "Show"}</span>
                 </div>
               </div>
              
