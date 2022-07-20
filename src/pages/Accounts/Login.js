@@ -74,6 +74,7 @@ useEffect(() => {
             </div>
 
         {/* The form  */}
+        
           <form onSubmit={handleSubmit(handleLogin, handleError)} noValidate>
 
             <div className='mt-8'>
@@ -122,10 +123,7 @@ useEffect(() => {
             <p className="mt-10 font-color-777 font-size-small">Forgot Password? <Link className="text-default underline decoration-default" to="/">Reset it here</Link></p>
 
 
-            {/* {errors?.password && errors.password.message} */}
-
-
-
+            {/* Submit button  */}
             <div className="mt-3">
               <button 
               className="inline-flex items-center font-weight-medium w-full place-content-center mt-6  form-auth-btn
