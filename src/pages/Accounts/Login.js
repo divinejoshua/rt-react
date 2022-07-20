@@ -8,13 +8,14 @@ export default function LoginView() {
 
 const [isLoading, setisLoading] = useState(false);
 const [isDisabled, setisDisabled] = useState(false);
+const [formAuthBtnError, setformAuthBtnError] = useState(false);
+const [firstValidation, setfirstValidation] = useState(false);
 
 // React hook form 
-const { register, handleSubmit, formState: { errors }  } = useForm();
-const handleError = (errors) => {};
+const { register, handleSubmit, formState: { errors, isValid }  } = useForm({mode: 'all'});
 
 
-// Login Function
+// Login Function on success
 const handleLogin = (data) => {
 
   // Submit the form...This is to Simulate an api call for 3 seconds 
@@ -31,7 +32,20 @@ const handleLogin = (data) => {
 }
 
 
+// Function if error on react form handling
+const handleError = (errors) => {
 
+  // On error, uodate form btn error state to allow animation
+  setformAuthBtnError(true)
+  setisDisabled(true)
+
+  setTimeout(() => { 
+    setformAuthBtnError(false)
+    setisDisabled(false)
+    console.log("Validation error")
+  }, 200)
+  
+};
 
 
 
@@ -47,12 +61,19 @@ const formValidation = {
 };
 
 
+// Use effect 
 useEffect(() => {
   console.log("login")
+
+  // Validate the form 
+  handleSubmit(handleLogin)
+  // setfirstValidation(true)
+
   return () => {
-    
   }
 }, [])
+
+
 
   return (
     // Main view 
@@ -74,62 +95,51 @@ useEffect(() => {
             </div>
 
         {/* The form  */}
-        
+
           <form onSubmit={handleSubmit(handleLogin, handleError)} noValidate>
 
+
+            {/* Input  */}
             <div className='mt-8'>
               <label className="mt-8 text-secondary">Email address</label>
               <input type="email" autoFocus name="email" autoComplete="off"  aria-autocomplete="off" placeholder="afolabi@email.com" {...register('email', formValidation.email)}
-                  className="mt-3 form-control w-full pl-6 border border-gray-300
-                  focus:outline-none focus:border-default
-                  focus:ring-default
-                  focus:ring-0.5
-                  focus:border-100
-                  transition duration-0 hover:duration-150
-                " />
+                className={(errors.email && firstValidation ? 'border-red-500 none' : '') + "none mt-3 form-control w-full pl-6 border border-gray-300 focus:outline-none focus:border-default focus:ring-default focus:ring-0.5 focus:border-100 transition duration-0 hover:duration-150"}
+              />
 
                 {/* If errors  */}
-                {errors?.email && 
+                {errors?.email && firstValidation && 
                   <div className="absolute text-red-500 float-left font-size-small pt-1">
                     {errors.email.message}
                   </div>
                 }
               
-
             </div>
 
-
+            {/* Input  */}
             <div className='mt-8'>
               <label className="mt-8 text-secondary">Password</label>
               <input type="password" name="password" autoComplete="off"  aria-autocomplete="off" placeholder="Enter password" {...register('password', formValidation.password)}
-                  className="mt-3 form-control w-full pl-6 border border-gray-300
-                  focus:outline-none focus:border-default
-                  focus:ring-default
-                  focus:ring-0.5
-                  focus:border-100
-                  transition duration-0 hover:duration-150
-                " />
+                  className={(errors.password && firstValidation ? 'border-red-500 none' : '') + "none mt-3 form-control w-full pl-6 border border-gray-300 focus:outline-none focus:border-default focus:ring-default focus:ring-0.5 focus:border-100 transition duration-0 hover:duration-150"}
+              />
 
                 {/* If errors  */}
-                {errors?.password && 
+                {errors?.password && firstValidation && 
                   <div className="absolute text-red-500 float-left font-size-small pt-1">
                     {errors.password.message}
                   </div>
                 }
 
-
             </div>
 
             <p className="mt-10 font-color-777 font-size-small">Forgot Password? <Link className="text-default underline decoration-default" to="/">Reset it here</Link></p>
 
-
             {/* Submit button  */}
             <div className="mt-3">
               <button 
-              className="inline-flex items-center font-weight-medium w-full place-content-center mt-6  form-auth-btn
-                bg-default border text-white border-default
-              ">
-
+                className={(isValid && !isLoading ? "bg-default border text-white border-default none" : "form-auth-btn-disabled font-color-777 cursor-not-allowed none")+ (formAuthBtnError ? "none form-auth-btn-error form-auth-btn-disabled font-color-777 cursor-not-allowed none none" : "") +"none inline-flex items-center font-weight-medium w-full place-content-center mt-6 form-auth-btn"}
+                onClick={() => setfirstValidation(true)}
+                disabled={!isValid || isLoading || formAuthBtnError}
+              >
                 {isLoading
                   ? <div className="dot-falling"></div>
                   : <span>Login</span>
@@ -139,7 +149,6 @@ useEffect(() => {
             </div>
 
             <div className="text-center"><p className="mt-8 font-size-small">Don’t have an account?  <span className="text-default underline decoration-default"> <Link to="/accounts/register">Sign up</Link></span> </p></div>
-
 
           </form>
 
