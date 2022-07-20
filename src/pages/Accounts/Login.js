@@ -22,6 +22,7 @@ const handleLogin = (data) => {
 }
 
 
+// Form validation 
 const formValidation = {
   email: { required: "Email is required" },
   password: {required: "Password is required",}
