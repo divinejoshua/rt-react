@@ -10,6 +10,7 @@ const [isLoading, setisLoading] = useState(false);
 const [isDisabled, setisDisabled] = useState(false);
 const [formAuthBtnError, setformAuthBtnError] = useState(false);
 const [firstValidation, setfirstValidation] = useState(false);
+const [showPassword, setshowPassword] = useState(false);
 
 // React hook form 
 const { register, handleSubmit, formState: { errors, isValid }  } = useForm({mode: 'all'});
@@ -118,10 +119,15 @@ useEffect(() => {
             {/* Input  */}
             <div className='mt-8'>
               <label className="mt-8 text-secondary">Password</label>
-              <input type="password" name="password" autoComplete="off"  aria-autocomplete="off" placeholder="Enter password" {...register('password', formValidation.password)}
-                  className={(errors.password && firstValidation ? 'border-red-500 none' : '') + "none mt-3 form-control w-full pl-6 border border-gray-300 focus:outline-none focus:border-default focus:ring-default focus:ring-0.5 focus:border-100 transition duration-0 hover:duration-150"}
-              />
-
+              <div class="relative">
+                <input type={showPassword ? "text" : "password"} name="password" autoComplete="off"  aria-autocomplete="off" placeholder="Enter password" {...register('password', formValidation.password)}
+                    className={(errors.password && firstValidation ? 'border-red-500 none' : '') + "none mt-3 form-control w-full pl-6 border border-gray-300 focus:outline-none focus:border-default focus:ring-default focus:ring-0.5 focus:border-100 transition duration-0 hover:duration-150"}
+                />
+                <div class="absolute inset-y-2 right-0 pr-3 pt-4 cursor-pointer flex items-center text-sm leading-5" onClick={() => setshowPassword(!showPassword)}>
+                      <span v-if="show" class="mr-3 text-sm font-color-777">{showPassword ? "Hide" : "Show"}</span>
+                </div>
+              </div>
+             
                 {/* If errors  */}
                 {errors?.password && firstValidation && 
                   <div className="absolute text-red-500 float-left font-size-small pt-1">
