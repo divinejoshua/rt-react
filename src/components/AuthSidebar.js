@@ -24,7 +24,7 @@ export default function AuthSidebar() {
                         <p className='font-size-medium'>72</p>
                     </div>
                 </div>
-                <p className='font-color-777 font-size-medium'>
+                <p className='font-color-777 font-size-low-mid mt-10 pl-3 pr-3'>
                     You’re a few clicks away from accepting and verifying transfers.
                 </p>
 
