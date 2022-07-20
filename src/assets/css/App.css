@@ -10,6 +10,61 @@ html {
   scroll-behavior: smooth;
 }
 
+::-moz-selection {
+  /* Code for Firefox */
+  color: #ffffff;
+  background: #22C55E;
+}
+
+::selection {
+  color: #ffffff;
+  background: #22C55E;
+}
+
+.font-size-large {
+  font-size: 20px;
+}
+
+.font-size-medium {
+  font-size: 18px;
+}
+
+.font-size-low-mid {
+  font-size: 15px;
+}
+
+.font-size-small {
+  font-size: 13px;
+}
+
+.font-size-x-small {
+  font-size: 12px;
+}
+
+.border-radius-10 {
+  border-radius: 10px;
+}
+
+.border-radius-transactions-card {
+  border-radius: 5px;
+}
+
+.font-weight-medium {
+  font-weight: 500;
+}
+
+.font-color-777 {
+  color: #757575;
+}
+
+.font-color-c4 {
+  color: #C4C4C4;
+}
+
+.font-color-999 {
+  color: #999999;
+}
+
 .authsidebar {
   width: 375px;
   height: 100%;
@@ -18,5 +73,13 @@ html {
   padding-top: 40px;
   z-index: 1;
   background-color: #FDFDFD;
+}
+
+.authsidebar {
+  background-color: #ffffff;
+}
+
+.auth-info-box {
+  margin-top: 95%;
 }
 /*# sourceMappingURL=App.css.map */
