@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        default : '#22C55E',
+        default : '#8F00FF',
         blacktext : '#121212',
         regulartext : '#757575',
         danger : '#FF3737',

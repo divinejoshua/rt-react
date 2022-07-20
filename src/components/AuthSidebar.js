@@ -10,8 +10,8 @@ export default function AuthSidebar() {
 
             {/* Logo and brand  */}
             <div className='flex'>
-                <img src={authlogo} className=""/>
-                <p className='font-size-large font-weight-medium mt-2 ml-3'>Runtransfer</p>
+                <img src={authlogo} width={35} height={35} className=""/>
+                <p className='font-size-large font-bold mt-1 ml-3 text-default'>Qevolt</p>
             </div>
 
 

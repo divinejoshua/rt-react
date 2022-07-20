@@ -16,12 +16,12 @@ html{
 ::-moz-selection {
   /* Code for Firefox */
   color: #ffffff;
-  background: #22C55E;
+  background: #c084fc;
 }
 
 ::selection {
   color: #ffffff;
-  background: #22C55E;
+  background: #c084fc;
 }
 
 
@@ -85,10 +85,37 @@ font-weight: 500;
 
 }
 
-.authsidebar{
-  background-color: #ffffff;
-}
 
 .auth-info-box{
   margin-top: 95%;
+}
+
+.auth-mainbar{
+  margin-left:175px;
+}
+
+.form-box{
+  width: 100%;
+  max-width: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form-control{
+  height: 45px;
+  border-radius: 5px;
+}
+
+.form-auth-btn{
+  height: 53px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.form-auth-btn-disabled{
+  background-color: #F8F8F8;
+  border: 1px solid #F8F8F8;
 }
