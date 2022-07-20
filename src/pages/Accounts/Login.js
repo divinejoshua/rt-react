@@ -7,9 +7,10 @@ export default function LoginView() {
 
 const [isLoading, setisLoading] = useState(false);
 
-const handleSubmit = () => {
-  
-};
+const { register, handleSubmit } = useForm();
+  const handleRegistration = (data) => console.log(data);
+
+
 
 
 useEffect(() => {
