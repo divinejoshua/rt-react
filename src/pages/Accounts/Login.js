@@ -138,10 +138,11 @@ useEffect(() => {
 
             <p className="mt-10 font-color-777 font-size-small">Forgot Password? <Link className="text-default underline decoration-default" to="/">Reset it here</Link></p>
 
+
             {/* Submit button  */}
             <div className="mt-3">
               <button 
-                className={(isValid && !isLoading ? "bg-default border text-white border-default none" : "form-auth-btn-disabled font-color-777 cursor-not-allowed none")+ (formAuthBtnError ? "none form-auth-btn-error form-auth-btn-disabled font-color-777 cursor-not-allowed none none" : "") +"none inline-flex items-center font-weight-medium w-full place-content-center mt-6 form-auth-btn"}
+                className={(isValid && !isLoading ? "bg-default border text-white border-default none" : "form-auth-btn-disabled font-color-777 cursor-not-allowed none")+ (formAuthBtnError ? "none form-auth-btn-error form-auth-btn-disabled font-color-777 cursor-not-allowed none" : "") +"none inline-flex items-center font-weight-medium w-full place-content-center mt-6 form-auth-btn"}
                 onClick={() => setfirstValidation(true)}
                 disabled={!isValid || isLoading || formAuthBtnError}
               >
