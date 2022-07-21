@@ -39,11 +39,9 @@ const handleRegister = (data) => {
   
     // On error, uodate form btn error state to allow animation
     setformAuthBtnError(true)
-    setisDisabled(true)
   
     setTimeout(() => { 
       setformAuthBtnError(false)
-      setisDisabled(false)
       console.log("Validation error")
     }, 200)
     
@@ -190,8 +188,6 @@ const handleRegister = (data) => {
 
                 <p className="mt-10 font-color-777 font-size-small">By registering, you agree to our <Link className="text-default underline decoration-default" to="/">Terms of Service</Link> and <Link className="text-default underline decoration-default" to="/">Privacy Policy</Link></p>
 
-
-{isDisabled ? 'True' : 'False'}
                 {/* Submit button  */}
                 <div className="mt-3">
                 <button 

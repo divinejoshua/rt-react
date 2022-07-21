@@ -40,11 +40,9 @@ const handleError = (errors) => {
 
   // On error, uodate form btn error state to allow animation
   setformAuthBtnError(true)
-  setisDisabled(true)
 
   setTimeout(() => { 
     setformAuthBtnError(false)
-    setisDisabled(false)
     console.log("Validation error")
   }, 200)
   
