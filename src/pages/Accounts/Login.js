@@ -66,9 +66,8 @@ const formValidation = {
 useEffect(() => {
   console.log("login")
 
-  // Validate the form 
+  // Validate the form on page load
   handleSubmit(handleLogin)
-  // setfirstValidation(true)
 
   return () => {
   }
@@ -100,7 +99,7 @@ useEffect(() => {
           <form onSubmit={handleSubmit(handleLogin, handleError)} noValidate>
 
 
-            {/* Input  */}
+            {/*Form input  */}
             <div className='mt-8'>
               <label className="mt-8 text-secondary">Email address</label>
               <input type="email" autoFocus name="email" autoComplete="off"  aria-autocomplete="off" placeholder="afolabi@email.com" {...register('email', formValidation.email)}
@@ -116,7 +115,7 @@ useEffect(() => {
               
             </div>
 
-            {/* Input  */}
+            {/*Form input  */}
             <div className='mt-8'>
               <label className="mt-8 text-secondary">Password</label>
               <div className="relative">
