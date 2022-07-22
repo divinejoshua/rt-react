@@ -2,7 +2,7 @@ import './assets/css/App.css';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import LoginView from './pages/Accounts/Login';
 import RegisterView from './pages/Accounts/Register';
-import DashboardView from './pages/Dashboard';
+import HomeView from './pages/Home';
 import PageNotFound from './pages/Error/404';
 
 import UseEffectHook from "./utils/UseEffectHook";
@@ -19,7 +19,7 @@ function App() {
         <Routes>
 
           {/* Dashboard  */}
-          <Route path="/" element={<DashboardView/>}/>
+          <Route path="/" element={<HomeView/>}/>
 
           {/* Login  */}
           <Route path="/accounts/login" element={<LoginView/>}/>
