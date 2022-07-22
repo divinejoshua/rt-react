@@ -6,7 +6,8 @@ export default function MainHeader() {
     <nav className='mainheader border-b w-full'>
 
       <div className='header-content w-full'>
-        <h1 className='text-3xl font-bold mt-4'>Wetroverse</h1>
+        <h1 className='text-3xl font-bold mt-4 float-left'>Wetroverse</h1>
+        <h1 className='text-3xl font-bold mt-4 float-right'>Wetroverse</h1>
       </div>
 
     </nav>
