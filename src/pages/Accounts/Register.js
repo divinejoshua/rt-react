@@ -56,8 +56,18 @@ const handleRegister = (data) => {
         message: "Enter a valid email address"
       }
     },
-    password: {required: "Password is required",},
-    confirmPassword: {required: "Confirm password is required",}
+    password: {required: "Password is required",
+        validate: {
+            containLowercase: v => /[a-z]/.test(v) || "Password must contain lowercase",
+            containUppercase: v => /[A-Z]/.test(v) || "Password must contain uppercase",
+            containNumber: v => /[0-9]/.test(v) || "Password must contain number",
+        }
+    },
+    confirmPassword: {required: "Confirm password is required",
+        validate: {
+            containUpperspace: v => v == watchFields[2] || "Password must contain uppercase"
+        }
+    }
   };
   
   
