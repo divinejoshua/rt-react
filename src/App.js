@@ -10,9 +10,6 @@ import UseEffectHook from "./utils/UseEffectHook";
 
 function App() {
 
-
-
-
   // The return render  
   return (
     <Router>
