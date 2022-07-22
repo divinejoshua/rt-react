@@ -595,4 +595,82 @@ html {
 .header-btn-full {
   height: 37px;
 }
+
+.linear-activity {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 4px;
+  background-color: #fce7f3;
+}
+
+.indeterminate {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.indeterminate:before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  background-color: #f472b6;
+  -webkit-animation: indeterminate_first 1.5s infinite ease-out;
+          animation: indeterminate_first 1.5s infinite ease-out;
+}
+
+.indeterminate:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  background-color: #fbcfe8;
+  -webkit-animation: indeterminate_second 1.5s infinite ease-in;
+          animation: indeterminate_second 1.5s infinite ease-in;
+}
+
+@-webkit-keyframes indeterminate_first {
+  0% {
+    left: -100%;
+    width: 100%;
+  }
+  100% {
+    left: 100%;
+    width: 10%;
+  }
+}
+
+@keyframes indeterminate_first {
+  0% {
+    left: -100%;
+    width: 100%;
+  }
+  100% {
+    left: 100%;
+    width: 10%;
+  }
+}
+
+@-webkit-keyframes indeterminate_second {
+  0% {
+    left: -200%;
+    width: 100%;
+  }
+  100% {
+    left: 100%;
+    width: 10%;
+  }
+}
+
+@keyframes indeterminate_second {
+  0% {
+    left: -200%;
+    width: 100%;
+  }
+  100% {
+    left: 100%;
+    width: 10%;
+  }
+}
 /*# sourceMappingURL=App.css.map */
