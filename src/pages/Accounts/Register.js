@@ -61,11 +61,12 @@ const handleRegister = (data) => {
             containLowercase: v => /[a-z]/.test(v) || "Password must contain lowercase",
             containUppercase: v => /[A-Z]/.test(v) || "Password must contain uppercase",
             containNumber: v => /[0-9]/.test(v) || "Password must contain number",
+            containSpecialCharacter: v => /[#?!@$%^&*-]/.test(v) || "Must contain special characters",
         }
     },
     confirmPassword: {required: "Confirm password is required",
         validate: {
-            containUpperspace: v => v == watchFields[2] || "Password must contain uppercase"
+            containUpperspace: v => v == watchFields[2] || "Passwords does not match"
         }
     }
   };
