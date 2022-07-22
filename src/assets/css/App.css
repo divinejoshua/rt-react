@@ -584,12 +584,15 @@ html {
 
 .search-box {
   width: 260px;
-  height: 37px;
+  height: 35px;
   background-color: #efefef;
 }
 
-.header-login-btn {
+.header-btn-float {
   height: 37px;
-  background-color: #efefef;
+}
+
+.header-btn-full {
+  height: 37px;
 }
 /*# sourceMappingURL=App.css.map */
