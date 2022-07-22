@@ -627,6 +627,10 @@ html {
   width: 40px;
 }
 
+.post-img {
+  width: 100%;
+}
+
 .linear-activity {
   overflow: hidden;
   position: fixed;
