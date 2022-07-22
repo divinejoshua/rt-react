@@ -604,12 +604,18 @@ html {
 }
 
 .stories-card {
-  height: 100px;
+  height: 120px;
 }
 
 .story-image {
   height: 65px;
   width: 65px;
+  border-color: #fda4af;
+}
+
+.profile-card-image {
+  height: 67px;
+  width: 67px;
 }
 
 .linear-activity {
