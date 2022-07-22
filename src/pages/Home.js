@@ -6,14 +6,19 @@ export default function HomeView() {
 // STATES 
 const [isLoadingPage, setisLoadingPage] = useState(true);
 
-const [stories, setstories] = useState([
-  { id: 1, url : "" },
-  { id: 1, url : "" },
-  { id: 1, url : "" },
-  { id: 1, url : "" },
-  { id: 1, url : "" },
-  { id: 1, url : "" },
-]);
+const [stories, setstories] = useState([]);
+
+
+//METHODS
+
+// Get story images
+const getStoryImages = () => {
+
+  // Submit 
+}
+
+
+
 
   
 //USE EFFECT
