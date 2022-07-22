@@ -6,7 +6,7 @@ export default function MainHeader() {
     <nav className='mainheader border-b w-full'>
 
       <div className='header-content w-full flex flex-row'>
-        <h1 className='text-3xl  mt-5 basis-1/3'>Wetro<span className='text-3xl text-default font-bold'>/verse</span></h1>
+        <h1 className='text-3xl mt-5 basis-1/3'>Wetro<span className='text-3xl text-default font-bold'>/verse</span></h1>
 
         {/* Search box  */}
         <div className=' basis-1/3 pt-4'>
