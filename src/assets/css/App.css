@@ -579,7 +579,7 @@ html {
 .header-content {
   margin-left: auto;
   margin-right: auto;
-  max-width: 950px;
+  max-width: 1050px;
 }
 
 .search-box {
@@ -599,7 +599,7 @@ html {
 .mainbody {
   margin-left: auto;
   margin-right: auto;
-  max-width: 950px;
+  max-width: 1050px;
   margin-top: 80px;
 }
 
@@ -610,12 +610,21 @@ html {
 .story-image {
   height: 65px;
   width: 65px;
-  border-color: #fda4af;
+  border-color: #fecaca;
 }
 
 .profile-card-image {
-  height: 67px;
-  width: 67px;
+  height: 57px;
+  width: 57px;
+}
+
+.add-post-btn {
+  height: 37px;
+}
+
+.users-card-image {
+  height: 40px;
+  width: 40px;
 }
 
 .linear-activity {
