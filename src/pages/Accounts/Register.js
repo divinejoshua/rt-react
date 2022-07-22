@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 import AuthSidebar from '../../components/AuthSidebar';
 import { useForm } from "react-hook-form"
 
@@ -11,6 +11,7 @@ const [isLoading, setisLoading] = useState(false);
 const [isDisabled, setisDisabled] = useState(false);
 const [formAuthBtnError, setformAuthBtnError] = useState(false);
 const [firstValidation, setfirstValidation] = useState(false);
+const navigate = useNavigate();
 // React hook form 
 const { register, handleSubmit, watch, formState: { errors, isValid }  } = useForm({mode: 'all'});
 
@@ -27,6 +28,7 @@ const handleRegister = (data) => {
     setTimeout(() => { 
       setisLoading(false)
       setisDisabled(false)
+      navigate("/accounts/login", { replace: true });
     }, 3000)
   
     // Submit 
