@@ -5,9 +5,10 @@ export default function MainHeader() {
     // Nav bar 
     <nav className='mainheader border-b w-full'>
 
-      <div className='header-content w-full'>
-        <h1 className='text-3xl font-bold mt-4 float-left'>Wetroverse</h1>
-        <h1 className='text-3xl font-bold mt-4 float-right'>Wetroverse</h1>
+      <div className='header-content w-full flex flex-row'>
+        <h1 className='text-3xl font-bold mt-4 basis-1/3'>Wetroverse</h1>
+        <h1 className='text-3xl font-bold mt-4 basis-1/3'>Wetroverse</h1>
+        <h1 className='text-3xl font-bold mt-4 basis-1/3'>Wetroverse</h1>
       </div>
 
     </nav>
