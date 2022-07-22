@@ -25,7 +25,7 @@ export default function AuthSidebar() {
                     </div>
                 </div>
                 <p className='font-color-777 font-size-low-mid mt-10 pl-3 pr-3'>
-                    You’re a few clicks away from been part of the world's largest network.
+                    You’re a few clicks away from been part of the world's  <span className='font-size-low-mid text-default underline underline-offset-4 decoration-default'>largest</span> network.
                 </p>
 
             </div>
