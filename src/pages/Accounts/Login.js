@@ -31,6 +31,8 @@ const handleLogin = (data) => {
   setTimeout(() => { 
     setisLoading(false)
     setisDisabled(false)
+    navigate("/");
+
   }, 3000)
 
   // Submit 
