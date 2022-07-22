@@ -9,8 +9,8 @@ export default function MainHeader() {
         <h1 className='text-3xl font-bold mt-4 basis-1/3'>Wetroverse</h1>
 
         {/* Search box  */}
-        <div className=' basis-1/3 border pt-2'>
-          <center><input className='search-box' type='text' placeholder='Search'></input></center>
+        <div className=' basis-1/3 pt-3'>
+          <center><input className='search-box pl-5 rounded-lg' type='text' placeholder='Search'></input></center>
         </div>
 
         <h1 className='text-3xl font-bold mt-4 basis-1/3'>Wetroverse</h1>
