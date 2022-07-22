@@ -40,8 +40,10 @@ useEffect(() => {
 
 
             {/* Stories  */}
-            <div className="stories-card border rounded-lg col-span-2 flex">
-                <img src="https://picsum.photos/id/237/100/100" className="mt-2 rounded-full story-image"></img>
+            <div className="stories-card border rounded-lg col-span-2 flex pl-4">
+              {data.map((6) => (
+                  <img src="https://picsum.photos/id/237/100/100" className="mt-6 border-2 border-default p-1 rounded-full story-image"></img>
+              ))}
             </div>
 
             {/* Profile card */}

@@ -604,12 +604,12 @@ html {
 }
 
 .stories-card {
-  height: 80px;
+  height: 100px;
 }
 
 .story-image {
-  height: 55px;
-  width: 55px;
+  height: 65px;
+  width: 65px;
 }
 
 .linear-activity {
