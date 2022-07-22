@@ -12,6 +12,9 @@ const [formAuthBtnError, setformAuthBtnError] = useState(false);
 const [firstValidation, setfirstValidation] = useState(false);
 const [showPassword, setshowPassword] = useState(false);
 
+// Use navigate 
+const navigate = useNavigate();
+
 // React hook form 
 const { register, handleSubmit, formState: { errors, isValid }  } = useForm({mode: 'all'});
 
