@@ -41,7 +41,7 @@ useEffect(() => {
 
             {/* Stories  */}
             <div className="stories-card border rounded-lg col-span-2 flex">
-              <img src="https://picsum.photos/id/237/200/300"></img>
+                <img src="https://picsum.photos/id/237/100/100" className="story-image"></img>
             </div>
 
             {/* Profile card */}
