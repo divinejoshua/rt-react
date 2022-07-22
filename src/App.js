@@ -5,7 +5,7 @@ import RegisterView from './pages/Accounts/Register';
 import DashboardView from './pages/Dashboard';
 import PageNotFound from './pages/Error/404';
 
-import UseEffectHook from "./components/UseEffectHook";
+import UseEffectHook from "./utils/UseEffectHook";
 
 
 function App() {
