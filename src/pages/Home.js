@@ -6,6 +6,15 @@ export default function HomeView() {
 // STATES 
 const [isLoadingPage, setisLoadingPage] = useState(true);
 
+const [stories, setstories] = useState([
+  { id: 1, url : "" },
+  { id: 1, url : "" },
+  { id: 1, url : "" },
+  { id: 1, url : "" },
+  { id: 1, url : "" },
+  { id: 1, url : "" },
+]);
+
   
 //USE EFFECT
 useEffect(() => {
@@ -41,7 +50,7 @@ useEffect(() => {
 
             {/* Stories  */}
             <div className="stories-card border rounded-lg col-span-2 flex pl-4">
-              {data.map((6) => (
+              {data.map((user) => (
                   <img src="https://picsum.photos/id/237/100/100" className="mt-6 border-2 border-default p-1 rounded-full story-image"></img>
               ))}
             </div>
