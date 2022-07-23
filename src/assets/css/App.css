@@ -640,6 +640,11 @@ html {
   width: 40px;
 }
 
+.comment-card-image {
+  height: 30px;
+  width: 30px;
+}
+
 .linear-activity {
   overflow: hidden;
   position: fixed;
