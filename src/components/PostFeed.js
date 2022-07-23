@@ -16,7 +16,7 @@ export default function PostFeed({post}) {
                 {/* Post image  */}
                 <div>
                 <br></br>
-                <img src="https://picsum.photos/300/300?" className="post-img mt-4" alt="wetroverse"></img>
+                <img src={'https://picsum.photos/id/'+post.id+2+'/200/300'} className="post-img mt-4" alt="wetroverse"></img>
                 </div>
 
                 {/* Likes and caption */}
