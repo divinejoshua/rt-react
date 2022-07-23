@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import MainHeader from "../components/MainHeader";
 import MainSidebar from "../components/MainSidebar";
 import PostFeed from "../components/PostFeed";
@@ -16,8 +16,11 @@ const [isLoadingPage, setisLoadingPage] = useState(true);
 // Comment form 
 const { register, handleSubmit, formState: { errors, isValid }  } = useForm({mode: 'all'});
 
+// Get url parameter
+const {id} = useParams()
+
 // Get post 
-const {getPost, data : posts, isPending, messageSuccess, messageError} = usePost("/posts/2")
+const {getPost, data : posts, isPending, messageSuccess, messageError} = usePost("/posts/"+id)
 
 
 //METHODS
@@ -38,6 +41,7 @@ const getUsers = () => {
 //USE EFFECT
 useEffect(() => {
   console.log("home")
+  console.log()
 
   // Get post 
   getPost()
@@ -94,7 +98,7 @@ useEffect(() => {
 
             
             {/* Post */}
-            <PostFeed post={posts} key={posts.id}/>
+            {posts? <PostFeed post={posts} key={posts.id}/> : null}
 
 
             <form  onSubmit={handleSubmit(handleComment, handleError)} noValidate>
