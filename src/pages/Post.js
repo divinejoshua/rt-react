@@ -19,7 +19,8 @@ const { register, handleSubmit, formState: { errors, isValid }  } = useForm({mod
 const {id} = useParams()
 
 // Get post 
-const {getPosts, data : posts, isPending, messageSuccess, messageError} = usePosts("/posts/"+id)
+const {getPosts, data : posts, isPending : isPendingPost, messageSuccess : messageSuccessPost, messageError, : messageErrorPost} = usePosts("/posts/"+id)
+const {getPosts, data : posts, isPending : isPendingPost, messageSuccess : messageSuccessPost, messageError, : messageErrorPost} = useComments("/posts/"+id)
 
 
 //METHODS
@@ -31,8 +32,7 @@ const handleComment = (errors) => {}
   
 //USE EFFECT
 useEffect(() => {
-  console.log("home")
-  console.log()
+  console.log("/posts/"+id)
 
   // Get post 
   getPosts()
