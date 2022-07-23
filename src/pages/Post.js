@@ -101,8 +101,8 @@ useEffect(() => {
             </div>
 
             {/* Profile card */}
-            <div className="ml-3 profile-card">
-              <div className="flex mt-3">
+            <div className="ml-3 ">
+              <div className="flex mt-3 profile-card">
                 <img src="https://robohash.org/namquaerataut.png" className="cursor-pointer mt-6 border-2 p-1 rounded-full profile-card-image"></img>
                 <div>
                   <h4 className="font-bold mt-11 ml-2">divine.er</h4>
