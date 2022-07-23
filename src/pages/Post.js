@@ -25,11 +25,22 @@ const {getComments, deleteComment, addComment, data : comments, isPending : isPe
 
 
 //METHODS
-const handleError = (errors) => {
 
+// Comment form error 
+const handleError = (errors) => {}
+
+
+// Submit comment form 
+const handleComment = (data) => {
+  console.log(data)
+  addComment(data.comment)
 }
 
-const handleComment = (errors) => {}
+
+// Comment Form validation 
+const formValidation = {
+  comment: {required: "Password is required",},
+};
 
 
 
@@ -93,7 +104,7 @@ useEffect(() => {
 
 
             <form  onSubmit={handleSubmit(handleComment, handleError)} noValidate className="mb-40">
-                <input type="text" autoFocus name="comment" autoComplete="off"  aria-autocomplete="off" placeholder="Add comment" {...register('coment')}
+                <input type="text" autoFocus name="comment" autoComplete="off"  aria-autocomplete="off" placeholder="Add comment" {...register('comment', formValidation.comment)}
                     className={"none mt-3 form-control w-full pl-6 border border-gray-300 focus:outline-none focus:border-default focus:ring-default focus:ring-0.5 focus:border-100 transition duration-0 hover:duration-150"}
                 />
               <button className='mt-6 ml-20 add-post-btn hover:border-default hover:bg-default hover:text-white transition duration-0 hover:duration-150 float-right mt-4 pl-5 pr-5 rounded-lg border'>Add comment</button>
