@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import LoginView from './pages/Accounts/Login';
 import RegisterView from './pages/Accounts/Register';
 import HomeView from './pages/Home';
+import PostView from './pages/Post';
 import PageNotFound from './pages/Error/404';
 
 import UseEffectHook from "./utils/UseEffectHook";
@@ -18,8 +19,11 @@ function App() {
       <div className="App">
         <Routes>
 
-          {/* Dashboard  */}
+          {/* Home  */}
           <Route path="/" element={<HomeView/>}/>
+
+          {/* Post view  */}
+          <Route path="/post/:id" element={<PostView/>}/>
 
           {/* Login  */}
           <Route path="/accounts/login" element={<LoginView/>}/>

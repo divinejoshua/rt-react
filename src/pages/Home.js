@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import MainHeader from "../components/MainHeader";
 
 export default function HomeView() {
@@ -117,7 +118,7 @@ useEffect(() => {
               <div className="mb-5">
                 <div className="float-left"><img src="https://robohash.org/namquaerataut.png" className="ml-3 border-2 p-1 rounded-full user-post-img"></img></div>
                 <div className="float-left mt-3 font-bold ml-2">divine.er</div>
-                <div className="float-right mt-3 text-sky-400 mr-5 cursor-pointer">View</div>
+                <Link to="/post/1"><div className="float-right mt-3 text-sky-400 mr-5 cursor-pointer">View</div></Link>
               </div>
 
               {/* Post image  */}
@@ -145,7 +146,7 @@ useEffect(() => {
               <div className="mb-5">
                 <div className="float-left"><img src="https://robohash.org/namquaerataut.png" className="ml-3 border-2 p-1 rounded-full user-post-img"></img></div>
                 <div className="float-left mt-3 font-bold ml-2">divine.er</div>
-                <div className="float-right mt-3 text-sky-400 mr-5 cursor-pointer">View</div>
+                <Link to="/post/1"><div className="float-right mt-3 text-sky-400 mr-5 cursor-pointer">View</div></Link>
               </div>
 
               {/* Post image  */}
@@ -174,7 +175,7 @@ useEffect(() => {
               <div className="mb-5">
                 <div className="float-left"><img src="https://robohash.org/namquaerataut.png" className="ml-3 border-2 p-1 rounded-full user-post-img"></img></div>
                 <div className="float-left mt-3 font-bold ml-2">divine.er</div>
-                <div className="float-right mt-3 text-sky-400 mr-5 cursor-pointer">View</div>
+                <Link to="/post/1"><div className="float-right mt-3 text-sky-400 mr-5 cursor-pointer">View</div></Link>
               </div>
 
               {/* Post image  */}
@@ -210,7 +211,7 @@ useEffect(() => {
               <div className="mb-5">
                 <div className="float-left"><img src="https://robohash.org/namquaerataut.png" className="ml-3 border-2 p-1 rounded-full user-post-img"></img></div>
                 <div className="float-left mt-3 font-bold ml-2">divine.er</div>
-                <div className="float-right mt-3 text-sky-400 mr-5 cursor-pointer">View</div>
+                <Link to="/post/1"><div className="float-right mt-3 text-sky-400 mr-5 cursor-pointer">View</div></Link>
               </div>
 
               {/* Post image  */}
@@ -238,7 +239,7 @@ useEffect(() => {
               <div className="mb-5">
                 <div className="float-left"><img src="https://robohash.org/namquaerataut.png" className="ml-3 border-2 p-1 rounded-full user-post-img"></img></div>
                 <div className="float-left mt-3 font-bold ml-2">divine.er</div>
-                <div className="float-right mt-3 text-sky-400 mr-5 cursor-pointer">View</div>
+                <Link to="/post/1"><div className="float-right mt-3 text-sky-400 mr-5 cursor-pointer">View</div></Link>
               </div>
 
               {/* Post image  */}
@@ -267,7 +268,7 @@ useEffect(() => {
               <div className="mb-5">
                 <div className="float-left"><img src="https://robohash.org/namquaerataut.png" className="ml-3 border-2 p-1 rounded-full user-post-img"></img></div>
                 <div className="float-left mt-3 font-bold ml-2">divine.er</div>
-                <div className="float-right mt-3 text-sky-400 mr-5 cursor-pointer">View</div>
+                <Link to="/post/1"><div className="float-right mt-3 text-sky-400 mr-5 cursor-pointer">View</div></Link>
               </div>
 
               {/* Post image  */}
