@@ -39,9 +39,9 @@ const useComments = (url) => {
         setisPending(true)      
         let newData = []
 
-        newData = data
+        newData = {...data}
         
-        let comment = newData.comments.filter(data => data.id != id);
+        let comment = newData.comments.filter(data => data.id !== id);
 
         newData.comments = comment
         setdata(newData)      

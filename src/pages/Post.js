@@ -25,9 +25,12 @@ const {getComments, deleteComment, data : comments, isPending : isPendingComment
 
 
 //METHODS
-const handleError = (errors) => {}
+const handleError = (errors) => {
+
+}
 
 const handleComment = (errors) => {}
+
 
 
   
@@ -84,7 +87,6 @@ useEffect(() => {
 
           {/* First column  */}
           <div className="mt-4">
-
             
             {/* Post */}
             <PostFeed post={posts}/>
@@ -108,6 +110,7 @@ useEffect(() => {
 
             
            <h4 className=" mt-1 font-color-777">Comments</h4>
+
 
                 {/* Comments  */}
                 {Array.isArray(comments.comments) ? comments.comments.map(comment => (
