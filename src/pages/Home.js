@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import MainHeader from "../components/MainHeader";
 import MainSidebar from "../components/MainSidebar";
+import Stories from "../components/Stories";
+
 
 export default function HomeView() {
 
@@ -56,46 +58,11 @@ useEffect(() => {
 
 
             {/* Stories  */}
-            <div className="stories-card border rounded-lg col-span-2 flex pl-4">
-              <div className="mr-4 ">
-                <img src="https://robohash.org/consequunturautconsequatur.png" alt="wetroverse" className="cursor-pointer mt-6 border-2 p-1 rounded-full story-image"></img>
-                <p className="text-center mt-2">Divine</p>
-              </div>
-              <div className="mr-4 ">
-                <img src="https://robohash.org/consequunturautconsequatur.png" alt="wetroverse" className="cursor-pointer mt-6 border-2 p-1 rounded-full story-image"></img>
-                <p className="text-center mt-2">Divine</p>
-              </div>
-              <div className="mr-4 ">
-                <img src="https://robohash.org/consequunturautconsequatur.png" alt="wetroverse" className="cursor-pointer mt-6 border-2 p-1 rounded-full story-image"></img>
-                <p className="text-center mt-2">Divine</p>
-              </div>
-              <div className="mr-4 ">
-                <img src="https://robohash.org/consequunturautconsequatur.png" className="cursor-pointer mt-6 border-2 p-1 rounded-full story-image"></img>
-                <p className="text-center mt-2">Divine</p>
-              </div>
-              <div className="mr-4 ">
-                <img src="https://robohash.org/consequunturautconsequatur.png" className="cursor-pointer mt-6 border-2 p-1 rounded-full story-image"></img>
-                <p className="text-center mt-2">Divine</p>
-              </div>
-              <div className="mr-4 ">
-                <img src="https://robohash.org/consequunturautconsequatur.png" className="cursor-pointer mt-6 border-2 p-1 rounded-full story-image"></img>
-                <p className="text-center mt-2">Divine</p>
-              </div>
-              <div className="mr-4 ">
-                <img src="https://robohash.org/consequunturautconsequatur.png" className="cursor-pointer mt-6 border-2 p-1 rounded-full story-image"></img>
-                <p className="text-center mt-2">Divine</p>
-              </div>
-              <div className="mr-4 ">
-                <img src="https://robohash.org/consequunturautconsequatur.png" className="cursor-pointer mt-6 border-2 p-1 rounded-full story-image"></img>
-                <p className="text-center mt-2">Divine</p>
-              </div>
-              
-                  
-            </div>
+           <Stories/>
 
             {/* Profile card */}
             <div className="ml-3 ">
-              <div className="flex mt-3 ">
+              <div className="flex mt-3 profile-card">
                 <img src="https://robohash.org/namquaerataut.png" className="cursor-pointer mt-6 border-2 p-1 rounded-full profile-card-image"></img>
                 <div>
                   <h4 className="font-bold mt-11 ml-2">divine.er</h4>
