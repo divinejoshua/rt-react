@@ -77,7 +77,7 @@ const useComments = (url) => {
     }
 
 
-    return {getComments, deleteComment, data, isPending, messageSuccess, messageError};
+    return {getComments, deleteComment, addComment, data, isPending, messageSuccess, messageError};
 }
  
 export default useComments;
