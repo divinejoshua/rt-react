@@ -34,8 +34,16 @@ const useComments = (url) => {
         
     }
 
+    // Delete comment 
+    const deleteComment = (id) =>{
+        newData = data.comments.filter(data => data.id != id)
+        data.comments = newData
+        console.log(data.comments)
 
-    return {getComments, data, isPending, messageSuccess, messageError};
+    }
+
+
+    return {getComments, deleteComment, data, isPending, messageSuccess, messageError};
 }
  
 export default useComments;
