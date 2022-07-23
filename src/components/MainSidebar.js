@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import useUsersList from '../utils/useUsersList'
 
 export default function MainSidebar() {
 
   // STATES 
   const {getUsers, data : users, isPending, messageSuccess, messageError} = useUsersList()
+
+  // METHODS 
+
+
+  //USE EFFECT
+  useEffect(() => {
+    getUsers()
+    return () => {
+    };
+  }, []);
+
+
 
 
   return (
