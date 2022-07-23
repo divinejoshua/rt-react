@@ -6,7 +6,7 @@ import HomeView from './pages/Home';
 import PostView from './pages/Post';
 import PageNotFound from './pages/Error/404';
 
-import useEffectHook from "./utils/useEffectHook";
+import UseEffectHook from "./utils/UseEffectHook";
 
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
   // The return render  
   return (
     <Router>
-      <useEffectHook/>
+      <UseEffectHook/>
 
       <div className="App">
         <Routes>

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import useUsersList from '../utils/useUsersList'
+import useUsersList from '../utils/useUsersListHook'
 
 
 export default function Stories() {

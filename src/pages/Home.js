@@ -3,7 +3,7 @@ import MainHeader from "../components/MainHeader";
 import MainSidebar from "../components/MainSidebar";
 import PostFeed from "../components/PostFeed";
 import Stories from "../components/Stories";
-import usePost from "../utils/usePosts";
+import usePost from "../utils/usePostHook";
 
 
 export default function HomeView() {

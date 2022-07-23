@@ -5,8 +5,8 @@ import MainSidebar from "../components/MainSidebar";
 import PostFeed from "../components/PostFeed";
 import Stories from "../components/Stories";
 import { useForm } from "react-hook-form"
-import usePosts from "../utils/usePosts";
-import useComments from "../utils/useComments";
+import usePosts from "../utils/usePostHook";
+import useComments from "../utils/useCommentHook";
 import CommentFeed from "../components/CommentFeed";
 
 export default function PostView() {
@@ -86,7 +86,7 @@ useEffect(() => {
 
             
             {/* Post */}
-            <PostFeed post={posts} key={posts.id}/>
+            <PostFeed post={posts}/>
 
 
             <form  onSubmit={handleSubmit(handleComment, handleError)} noValidate>
@@ -109,7 +109,7 @@ useEffect(() => {
            <h4 className=" mt-1 font-color-777">Comments</h4>
 
                 {/* Comments  */}
-                <CommentFeed/>
+                <CommentFeed comments={comments}/>
 
 
 
