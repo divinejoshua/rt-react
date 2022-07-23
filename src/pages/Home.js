@@ -71,27 +71,27 @@ useEffect(() => {
             </div>
 
 
-          {/* Posts  */}
+          {/* Posts Feed */}
 
           {/* First column  */}
           <div className="mt-4 col-span-2">
 
 
 
-          <div className="grid grid-cols-2 gap-4 mt-10">
+            <div className="grid grid-cols-2 gap-4 mt-10">
 
 
 
-            {/* Post */}
-            {Array.isArray(posts.posts) ? posts.posts.map(post => (
-              <PostFeed post={post} key={post.id}/>
-            )) : null}
+              {/* Post */}
+              {Array.isArray(posts.posts) ? posts.posts.map(post => (
+                <PostFeed post={post} key={post.id}/>
+              )) : null}
 
 
+
+            </div>
 
           </div>
-
-      </div>
 
 
 
