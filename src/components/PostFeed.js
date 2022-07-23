@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function PostFeed() {
   return (
@@ -27,7 +28,7 @@ export default function PostFeed() {
                 <span className="text-default">#endregion&nbsp;&nbsp;</span> 
                 <span className="text-default">#endregion&nbsp;&nbsp;</span>
                 </div>
-                
+
             </div>
     </div>
   )
