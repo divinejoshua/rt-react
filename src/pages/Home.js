@@ -4,13 +4,13 @@ import MainHeader from "../components/MainHeader";
 import MainSidebar from "../components/MainSidebar";
 import PostFeed from "../components/PostFeed";
 import Stories from "../components/Stories";
-import usePost from "../utils/usePost";
+import usePost from "../utils/usePosts";
 
 
 export default function HomeView() {
 
 // STATES 
-const {getPost, data : posts, isPending, messageSuccess, messageError} = usePost("/posts?limit=8")
+const {getPosts, data : posts, isPending, messageSuccess, messageError} = usePost("/posts?limit=8")
 
 
 //METHODS
@@ -23,7 +23,7 @@ useEffect(() => {
   console.log("home")
   
   // Get post list 
-  getPost()
+  getPosts()
 
   return () => {
   }

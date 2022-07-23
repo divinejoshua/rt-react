@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import MainHeader from "../components/MainHeader";
 import MainSidebar from "../components/MainSidebar";
 import PostFeed from "../components/PostFeed";
 import Stories from "../components/Stories";
 import { useForm } from "react-hook-form"
-import usePost from "../utils/usePost";
+import usePosts from "../utils/usePosts";
+import Comment from "../components/Comments";
 
 export default function PostView() {
 
@@ -18,21 +19,13 @@ const { register, handleSubmit, formState: { errors, isValid }  } = useForm({mod
 const {id} = useParams()
 
 // Get post 
-const {getPost, data : posts, isPending, messageSuccess, messageError} = usePost("/posts/"+id)
+const {getPosts, data : posts, isPending, messageSuccess, messageError} = usePosts("/posts/"+id)
 
 
 //METHODS
 const handleError = (errors) => {}
 
 const handleComment = (errors) => {}
-
-// Get story images
-const getUsers = () => {
-
-  // Submit 
-}
-
-
 
 
   
@@ -42,7 +35,7 @@ useEffect(() => {
   console.log()
 
   // Get post 
-  getPost()
+  getPosts()
 
   return () => {
   }
@@ -109,45 +102,13 @@ useEffect(() => {
 
 
           {/* second column  */}
-          <div className="mt-4">
+          <div className="mt-4 ml-4">
 
             
-           <h4 className="ml-4 mt-1 font-color-777">Comments</h4>
+           <h4 className=" mt-1 font-color-777">Comments</h4>
 
                 {/* Comments  */}
-                <div className="flex">
-                    <img src="https://robohash.org/quisequienim.png" className="cursor-pointer mt-6 border-2 p-1 rounded-full comment-card-image"></img>
-                    <div>
-                    <h4 className="font-bold mt-7 ml-2">divine.er</h4>
-                    <h4 className="ml-2 font-color-777 font-size-x-small">You amaze me!</h4>
-                    </div>
-                </div>
-
-                <div className="flex">
-                    <img src="https://robohash.org/quisequienim.png" className="cursor-pointer mt-6 border-2 p-1 rounded-full comment-card-image"></img>
-                    <div>
-                    <h4 className="font-bold mt-7 ml-2">divine.er</h4>
-                    <h4 className="ml-2 font-color-777 font-size-x-small">You amaze me!</h4>
-                    </div>
-                </div>
-
-                <div className="flex">
-                    <img src="https://robohash.org/quisequienim.png" className="cursor-pointer mt-6 border-2 p-1 rounded-full comment-card-image"></img>
-                    <div>
-                    <h4 className="font-bold mt-7 ml-2">divine.er</h4>
-                    <h4 className="ml-2 font-color-777 font-size-x-small">You amaze me!</h4>
-                    </div>
-                </div>
-
-                <div className="flex">
-                    <img src="https://robohash.org/quisequienim.png" className="cursor-pointer mt-6 border-2 p-1 rounded-full comment-card-image"></img>
-                    <div>
-                    <h4 className="font-bold mt-7 ml-2">divine.er</h4>
-                    <h4 className="ml-2 font-color-777 font-size-x-small">Divine Erhomonsele</h4>
-                    </div>
-                    <p className='ml-36 font-color-c4 float-right mt-8 mr-6 cursor-pointer'>Delete</p>
-
-                </div>
+                <Comment/>
 
 
 
