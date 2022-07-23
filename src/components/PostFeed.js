@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function PostFeed() {
+export default function PostFeed({post}) {
   return (
     <div>
            <div className="post-card border rounded-lg pt-3 mb-4 col-span-1">
@@ -21,12 +21,15 @@ export default function PostFeed() {
 
                 {/* Likes and caption */}
                 <div className="p-6">
-                    <div className="mb-3 font-color-777 mr-5 cursor-pointer">Like &nbsp;&nbsp;•&nbsp;&nbsp;200 </div>
-                    His mother had always taught him 
+                    <div className="mb-3 font-color-777 mr-5 cursor-pointer">Like &nbsp;&nbsp;•&nbsp;&nbsp;{post.reactions} </div>
+                    {post.body} 
                 <br></br>
-                <span className="text-default">#endregion&nbsp;&nbsp;</span> 
-                <span className="text-default">#endregion&nbsp;&nbsp;</span> 
-                <span className="text-default">#endregion&nbsp;&nbsp;</span>
+
+                {post.tags.map(tags => (
+                    <span className="text-default" key={tags}>#{tags}&nbsp;&nbsp;</span> 
+                ))}
+                
+
                 </div>
 
             </div>

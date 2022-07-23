@@ -11,7 +11,7 @@ export default function HomeView() {
 
 // STATES 
 const [isLoadingPage, setisLoadingPage] = useState(true);
-const {getUsers, data : posts, isPending, messageSuccess, messageError} = usePost("/users?limit=8")
+const {getPost, data : posts, isPending, messageSuccess, messageError} = usePost("/posts?limit=8")
 
 
 //METHODS
@@ -24,7 +24,7 @@ useEffect(() => {
   console.log("home")
   
   // Get users list 
-  getUsers()
+  getPost()
 
   //Set loding page to false
   setTimeout(() => {  setisLoadingPage(false) }, 3000);
@@ -83,7 +83,9 @@ useEffect(() => {
 
 
             {/* Post */}
-         <PostFeed/>
+            {Array.isArray(posts.posts) ? posts.posts.map(post => (
+              <PostFeed post={post} key={post.id}/>
+            )) : null}
 
 
 
