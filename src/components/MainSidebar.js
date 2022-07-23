@@ -1,6 +1,12 @@
 import React from 'react'
+import useUsersList from '../utils/useUsersList'
 
 export default function MainSidebar() {
+
+  // STATES 
+  const {getUsers, data : users, isPending, messageSuccess, messageError} = useUsersList()
+
+
   return (
     <div>
         <div className="mt-4 ml-3">
