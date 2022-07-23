@@ -98,7 +98,7 @@ useEffect(() => {
 
             
             {/* Post */}
-            {posts? <PostFeed post={posts} key={posts.id}/> : null}
+            <PostFeed post={posts} key={posts.id}/>
 
 
             <form  onSubmit={handleSubmit(handleComment, handleError)} noValidate>
