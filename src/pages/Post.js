@@ -6,7 +6,8 @@ import PostFeed from "../components/PostFeed";
 import Stories from "../components/Stories";
 import { useForm } from "react-hook-form"
 import usePosts from "../utils/usePosts";
-import Comments from "../components/Comments";
+import useComments from "../utils/useComments";
+import CommentFeed from "../components/CommentFeed";
 
 export default function PostView() {
 
@@ -19,8 +20,8 @@ const { register, handleSubmit, formState: { errors, isValid }  } = useForm({mod
 const {id} = useParams()
 
 // Get post 
-const {getPosts, data : posts, isPending : isPendingPost, messageSuccess : messageSuccessPost, messageError, : messageErrorPost} = usePosts("/posts/"+id)
-const {getPosts, data : posts, isPending : isPendingPost, messageSuccess : messageSuccessPost, messageError, : messageErrorPost} = useComments("/posts/"+id)
+const {getPosts, data : posts, isPending : isPendingPost, messageSuccess : messageSuccessPost, messageError : messageErrorPost} = usePosts("/posts/"+id)
+const {getComments, data : comments, isPending : isPendingComment, messageSuccess : messageSuccessComment, messageError : messageErrorComment} = useComments("/posts/"+id)
 
 
 //METHODS
@@ -46,7 +47,7 @@ useEffect(() => {
     <div>
 
       {/* Top loader  */}
-      {isPending && 
+      {isPendingPost && 
         <div className="linear-activity">
           <div className="indeterminate"></div>
         </div>
@@ -108,7 +109,7 @@ useEffect(() => {
            <h4 className=" mt-1 font-color-777">Comments</h4>
 
                 {/* Comments  */}
-                <Comments/>
+                <CommentFeed/>
 
 
 

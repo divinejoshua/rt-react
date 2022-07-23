@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import MainHeader from "../components/MainHeader";
 import MainSidebar from "../components/MainSidebar";
 import PostFeed from "../components/PostFeed";

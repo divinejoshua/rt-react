@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-const UseEffectHook = () => {
+const useEffectHook = () => {
 
 
     const { pathname }  = useLocation()
@@ -21,4 +21,4 @@ const UseEffectHook = () => {
     return null;
 }
  
-export default UseEffectHook;
+export default useEffectHook;
