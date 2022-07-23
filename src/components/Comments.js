@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Comment() {
+export default function Comments() {
   return (
 
     <div className="flex">

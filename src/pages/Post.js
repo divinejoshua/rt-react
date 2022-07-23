@@ -6,7 +6,7 @@ import PostFeed from "../components/PostFeed";
 import Stories from "../components/Stories";
 import { useForm } from "react-hook-form"
 import usePosts from "../utils/usePosts";
-import Comment from "../components/Comments";
+import Comments from "../components/Comments";
 
 export default function PostView() {
 
@@ -108,7 +108,7 @@ useEffect(() => {
            <h4 className=" mt-1 font-color-777">Comments</h4>
 
                 {/* Comments  */}
-                <Comment/>
+                <Comments/>
 
 
 

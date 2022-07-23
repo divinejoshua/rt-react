@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "../api/axios";
 
-const useComment = (url) => {
+const useComments = (url) => {
 
     // STATES 
     const [data, setdata] = useState([]);
@@ -10,7 +10,7 @@ const useComment = (url) => {
     const [messageError, setmessageError] = useState(null);
 
     // METHODS 
-    const getComment = async () => {
+    const getComments = async () => {
 
         setisPending(true);
         setmessageSuccess(null);
@@ -35,7 +35,7 @@ const useComment = (url) => {
     }
 
 
-    return {getComment, data, isPending, messageSuccess, messageError};
+    return {getComments, data, isPending, messageSuccess, messageError};
 }
  
-export default useComment;
+export default useComments;
