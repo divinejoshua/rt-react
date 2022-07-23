@@ -4,24 +4,17 @@ import MainHeader from "../components/MainHeader";
 import MainSidebar from "../components/MainSidebar";
 import PostFeed from "../components/PostFeed";
 import Stories from "../components/Stories";
+import usePost from "../utils/usePost";
 
 
 export default function HomeView() {
 
 // STATES 
 const [isLoadingPage, setisLoadingPage] = useState(true);
-
-const [stories, setstories] = useState([]);
+const {getUsers, data : posts, isPending, messageSuccess, messageError} = usePost("/users?limit=8")
 
 
 //METHODS
-
-// Get story images
-const getUsers = () => {
-
-  // Submit 
-}
-
 
 
 
@@ -29,6 +22,9 @@ const getUsers = () => {
 //USE EFFECT
 useEffect(() => {
   console.log("home")
+  
+  // Get users list 
+  getUsers()
 
   //Set loding page to false
   setTimeout(() => {  setisLoadingPage(false) }, 3000);

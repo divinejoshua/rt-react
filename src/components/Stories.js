@@ -5,7 +5,7 @@ import useUsersList from '../utils/useUsersList'
 export default function Stories() {
 
   // STATES 
-  const {getUsers, data : users, isPending, messageSuccess, messageError} = useUsersList()
+  const {getUsers, data : users, isPending, messageSuccess, messageError} = useUsersList("/users?limit=8")
   // METHODS 
 
 

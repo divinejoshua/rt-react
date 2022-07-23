@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "../api/axios";
 
 // Get Users list 
-const useUsersList = () => {
+const useUsersList = (url) => {
 
     // STATES 
     const [data, setdata] = useState([]);
@@ -20,7 +20,7 @@ const useUsersList = () => {
 
         try{
             // get all users 
-            const response = await axios.get("/users?limit=8")
+            const response = await axios.get(url)
             setdata(response.data)
         }
 
