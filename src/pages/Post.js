@@ -44,10 +44,6 @@ useEffect(() => {
   // Get post 
   getPost()
 
-  //Set loding page to false
-  setTimeout(() => {  setisLoadingPage(false) }, 3000);
-
-
   return () => {
   }
 }, [])

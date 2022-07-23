@@ -25,10 +25,6 @@ useEffect(() => {
   // Get post list 
   getPost()
 
-  //Set loding page to false
-  setTimeout(() => {  setisLoadingPage(false) }, 3000);
-
-
   return () => {
   }
 }, [])
