@@ -53,11 +53,11 @@ const useComments = (url) => {
 
      // Delete comment 
      const addComment = (value) =>{
+        setisPending(true)      
+
+        Get random value as ID
         let id = Math.floor((Math.random() * 1000) + 100);
 
-
-
-        setisPending(true)      
         let newData = {
             id : id, 
             body : value, 
