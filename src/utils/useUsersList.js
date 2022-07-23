@@ -36,7 +36,7 @@ const useUsersList = () => {
     }
 
 
-    return {};
+    return {data, isPending, messageSuccess, messageError};
 }
  
 export default useUsersList;
