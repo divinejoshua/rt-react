@@ -23,7 +23,7 @@ const {getPost, data : posts, isPending, messageSuccess, messageError} = usePost
 useEffect(() => {
   console.log("home")
   
-  // Get users list 
+  // Get post list 
   getPost()
 
   //Set loding page to false

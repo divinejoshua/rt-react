@@ -14,6 +14,9 @@ const [isLoadingPage, setisLoadingPage] = useState(true);
 // Comment form 
 const { register, handleSubmit, formState: { errors, isValid }  } = useForm({mode: 'all'});
 
+// Get post 
+const {getPost, data : posts, isPending, messageSuccess, messageError} = usePost("/posts?limit=8")
+
 
 //METHODS
 const handleError = (errors) => {}
@@ -33,6 +36,9 @@ const getUsers = () => {
 //USE EFFECT
 useEffect(() => {
   console.log("home")
+
+  // Get post 
+  getPost()
 
   //Set loding page to false
   setTimeout(() => {  setisLoadingPage(false) }, 3000);
