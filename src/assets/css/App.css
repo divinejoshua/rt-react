@@ -645,6 +645,11 @@ html {
   width: 30px;
 }
 
+.main-sidebar {
+  position: fixed;
+  top: 210px;
+}
+
 .linear-activity {
   overflow: hidden;
   position: fixed;
