@@ -617,6 +617,11 @@ html {
   border-color: #fecaca;
 }
 
+.profile-card {
+  position: fixed;
+  top: 110px;
+}
+
 .profile-card-image {
   height: 57px;
   width: 57px;
