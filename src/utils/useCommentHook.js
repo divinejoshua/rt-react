@@ -67,7 +67,7 @@ const useComments = (url) => {
         }
 
         // Merging the array 
-        newData = [...arr, {...newData}]
+        newData = [...data, {...newData}]
 
         setdata(newData)  
         console.log(newData)    
