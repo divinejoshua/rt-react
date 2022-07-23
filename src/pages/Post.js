@@ -109,9 +109,8 @@ useEffect(() => {
             
            <h4 className=" mt-1 font-color-777">Comments</h4>
 
-
                 {/* Comments  */}
-                {Array.isArray(comments.comments)? comments.comments.map(comment => (
+                {Array.isArray(comments.comments) ? comments.comments.map(comment => (
                     <CommentFeed comment={comment} key={comment.id} deleteComment={deleteComment}/>
                 )) : "No comments"}
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function CommentFeed({comment}) {
+export default function CommentFeed({comment, deleteComment}) {
   return (
 
     <div className="flex">
@@ -8,7 +8,7 @@ export default function CommentFeed({comment}) {
         <div>
         <h4 className="font-bold mt-7 ml-2">divine.er</h4>
         <h4 className="ml-2 font-color-777 font-size-x-small">{comment.body}</h4>
-        <p className='ml-2 font-color-c4 mt-2 mr-6 cursor-pointer'>Delete</p>
+        <p className='ml-2 font-color-c4 mt-2 mr-6 cursor-pointer' onClick={() => deleteComment(comment.id)}>Delete</p>
 
         </div>
 

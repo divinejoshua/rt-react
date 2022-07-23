@@ -36,9 +36,19 @@ const useComments = (url) => {
 
     // Delete comment 
     const deleteComment = (id) =>{
-        newData = data.comments.filter(data => data.id != id)
-        data.comments = newData
-        console.log(data.comments)
+        setisPending(true)      
+        let newData = []
+
+        newData = data
+        
+        let comment = newData.comments.filter(data => data.id != id);
+
+        newData.comments = comment
+        setdata(newData)      
+        console.log(data)      
+        console.log(newData) 
+        setisPending(false)      
+
 
     }
 
