@@ -50,7 +50,7 @@ useEffect(() => {
       <div className="container mainbody">
 
         {/* Posts and side bar  */}
-        <div className="grid grid-cols-3 gap-4 mt-10">
+        <div className="grid grid-cols-3 gap-6 mt-10">
 
 
             {/* Stories  */}
@@ -106,12 +106,21 @@ useEffect(() => {
 
 
           {/* Posts  */}
+
+          {/* First column  */}
           <div class="mt-4">
             <div className="post-card border rounded-lg">
-              <img src="https://picsum.photos/200/300?" className="post-img" alt="wetroverse"></img>
+              <div className="flex">divine.er</div>
+              <img src="https://picsum.photos/300/300?" className="post-img" alt="wetroverse"></img>
             </div>
           </div>
+
+
+          {/* second column  */}
           <div class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+
+
+
 
           {/* Users list  */}
           <div class="mt-4 ml-3">
