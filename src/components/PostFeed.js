@@ -25,9 +25,9 @@ export default function PostFeed({post}) {
                     {post.body} 
                 <br></br>
 
-                {post.tags.map(tags => (
+                {Array.isArray(post.tags) ? post.tags.map(tags => (
                     <span className="text-default" key={tags}>#{tags}&nbsp;&nbsp;</span> 
-                ))}
+                )) : ''}
                 
 
                 </div>
