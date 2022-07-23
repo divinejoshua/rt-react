@@ -57,20 +57,23 @@ const useComments = (url) => {
 
         // Get random value as ID
         let id = Math.floor((Math.random() * 1000) + 100);
+        let newData = []
+
+        newData = {...data}
 
 
         // Setting new array 
-        let newData = {
+        const comment = {
             id : id, 
             body : value, 
             postId: 3, user: {id: 21, username: "divine"},
         }
+       
 
-        // Merging the array 
-        newData = [...data, {...newData}]
+        newData.comments.unshift(comment);
+        // newData = {...data.comments, ...newData}
 
         setdata(newData)  
-        console.log(newData)    
         setisPending(false)      
 
 
