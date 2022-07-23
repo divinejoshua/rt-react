@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import MainHeader from "../components/MainHeader";
 
-export default function HomeView() {
+export default function PostView() {
 
 // STATES 
 const [isLoadingPage, setisLoadingPage] = useState(true);
