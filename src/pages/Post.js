@@ -112,7 +112,7 @@ useEffect(() => {
 
                 {/* Comments  */}
                 {Array.isArray(comments.comments)? comments.comments.map(comment => (
-                    <CommentFeed comments={comments} key={comment.id}/>
+                    <CommentFeed comment={comment} key={comment.id}/>
                 )) : "No comments"}
 
 
