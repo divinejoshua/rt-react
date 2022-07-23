@@ -21,7 +21,7 @@ const {id} = useParams()
 
 // Get post 
 const {getPosts, data : posts, isPending : isPendingPost, messageSuccess : messageSuccessPost, messageError : messageErrorPost} = usePosts("/posts/"+id)
-const {getComments, data : comments, isPending : isPendingComment, messageSuccess : messageSuccessComment, messageError : messageErrorComment} = useComments("/posts/"+id)
+const {getComments, data : comments, isPending : isPendingComment, messageSuccess : messageSuccessComment, messageError : messageErrorComment} = useComments("/comments/post/"+id)
 
 
 //METHODS
@@ -37,6 +37,7 @@ useEffect(() => {
 
   // Get post 
   getPosts()
+  getComments()
 
   return () => {
   }
@@ -108,8 +109,11 @@ useEffect(() => {
             
            <h4 className=" mt-1 font-color-777">Comments</h4>
 
+
                 {/* Comments  */}
-                <CommentFeed comments={comments}/>
+                {Array.isArray(comments.comments)? comments.comments.map(comment => (
+                    <CommentFeed comments={comments} key={comment.id}/>
+                )) : "No comments"}
 
 
 
