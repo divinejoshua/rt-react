@@ -45,8 +45,32 @@ const useComments = (url) => {
 
         newData.comments = comment
         setdata(newData)      
-        console.log(data)      
-        console.log(newData) 
+        setisPending(false)      
+
+
+    }
+
+
+     // Delete comment 
+     const addComment = (value) =>{
+        let id = Math.floor((Math.random() * 1000) + 100);
+
+
+
+        setisPending(true)      
+        let newData = {
+            id : id, 
+            body : value, 
+            postId: 3, user: {id: 21, username: "divine"},
+        }
+
+        newArray = [...arr, {...result, id:3}]
+
+
+        let comment = newData.comments.filter(data => data.id !== id);
+
+        newData.comments = comment
+        setdata(newData)      
         setisPending(false)      
 
 

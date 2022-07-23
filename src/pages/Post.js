@@ -51,7 +51,7 @@ useEffect(() => {
     <div>
 
       {/* Top loader  */}
-      {isPendingPost && 
+      {isPendingPost || isPendingComment && 
         <div className="linear-activity">
           <div className="indeterminate"></div>
         </div>
@@ -92,7 +92,7 @@ useEffect(() => {
             <PostFeed post={posts}/>
 
 
-            <form  onSubmit={handleSubmit(handleComment, handleError)} noValidate>
+            <form  onSubmit={handleSubmit(handleComment, handleError)} noValidate className="mb-40">
                 <input type="text" autoFocus name="comment" autoComplete="off"  aria-autocomplete="off" placeholder="Add comment" {...register('coment')}
                     className={"none mt-3 form-control w-full pl-6 border border-gray-300 focus:outline-none focus:border-default focus:ring-default focus:ring-0.5 focus:border-100 transition duration-0 hover:duration-150"}
                 />
