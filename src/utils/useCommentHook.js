@@ -55,22 +55,22 @@ const useComments = (url) => {
      const addComment = (value) =>{
         setisPending(true)      
 
-        Get random value as ID
+        // Get random value as ID
         let id = Math.floor((Math.random() * 1000) + 100);
 
+
+        // Setting new array 
         let newData = {
             id : id, 
             body : value, 
             postId: 3, user: {id: 21, username: "divine"},
         }
 
-        newArray = [...arr, {...result, id:3}]
+        // Merging the array 
+        newData = [...arr, {...newData}]
 
-
-        let comment = newData.comments.filter(data => data.id !== id);
-
-        newData.comments = comment
-        setdata(newData)      
+        setdata(newData)  
+        console.log(newData)    
         setisPending(false)      
 
 
