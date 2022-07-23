@@ -5,7 +5,7 @@ import axios from "../api/axios";
 const useUsersList = () => {
 
     // STATES 
-    const [data, setdata] = useState(null);
+    const [data, setdata] = useState([]);
     const [isPending, setisPending] = useState(false);
     const [messageSuccess, setmessageSuccess] = useState(null);
     const [messageError, setmessageError] = useState(null);
@@ -17,11 +17,11 @@ const useUsersList = () => {
         setmessageSuccess(null);
         setmessageError(null);
 
+
         try{
             // get all users 
-            let response = await axios.get("https://dummyjson.com/users")
+            const response = await axios.get("/users?limit=8")
             setdata(response.data)
-            console.log(data)
         }
 
         catch ({ response  }){
@@ -36,7 +36,7 @@ const useUsersList = () => {
     }
 
 
-    return {data, isPending, messageSuccess, messageError};
+    return {getUsers, data, isPending, messageSuccess, messageError};
 }
  
 export default useUsersList;
