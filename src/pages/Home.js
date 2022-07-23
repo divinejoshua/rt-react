@@ -10,7 +10,6 @@ import usePost from "../utils/usePost";
 export default function HomeView() {
 
 // STATES 
-const [isLoadingPage, setisLoadingPage] = useState(true);
 const {getPost, data : posts, isPending, messageSuccess, messageError} = usePost("/posts?limit=8")
 
 
@@ -39,7 +38,7 @@ useEffect(() => {
     <div>
 
       {/* Top loader  */}
-      {isLoadingPage && 
+      {isPending && 
         <div className="linear-activity">
           <div className="indeterminate"></div>
         </div>
