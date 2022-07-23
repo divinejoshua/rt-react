@@ -10,8 +10,6 @@ import usePost from "../utils/usePost";
 export default function PostView() {
 
 // STATES 
-const [isLoadingPage, setisLoadingPage] = useState(true);
-
 
 // Comment form 
 const { register, handleSubmit, formState: { errors, isValid }  } = useForm({mode: 'all'});
@@ -59,7 +57,7 @@ useEffect(() => {
     <div>
 
       {/* Top loader  */}
-      {isLoadingPage && 
+      {isPending && 
         <div className="linear-activity">
           <div className="indeterminate"></div>
         </div>
