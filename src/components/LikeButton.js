@@ -1,9 +1,16 @@
 import React from 'react'
-import { likeButtonFunction } from "../utils/usePostHook";
+import usePosts from "../utils/usePostHook";
 
 
-export default function LikeButton() {
+
+export default function LikeButton(id) {
+
+// STATES 
+const {likeButtonFunction} = usePosts("/posts/"+id)
+
+
+
   return (
-    <div>LikeButton</div>
+    <span onClick={}>Like</span>
   )
 }
