@@ -11,7 +11,12 @@ export default function LikeButton({id, likeButtonFunction}) {
     }
 
   return (
-    // <span onClick={()=> updateLikeButton()}>Like</span>
-    <span className='text-default underline decoration-default' onClick={()=> updateLikeButton()}>Like</span>
+    <span>
+       {!liked 
+        ? <span onClick={()=> updateLikeButton()}>Like</span>
+        : <span className='text-default underline underline-offset-4 decoration-default' onClick={()=> updateLikeButton()}>Liked</span>
+    }
+    </span>
+   
   )
 }
