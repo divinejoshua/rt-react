@@ -34,7 +34,12 @@ const usePosts = (url) => {
         
     }
 
+    // Like button function 
     const likeButtonFunction = (id) =>  {
+        const newData = []
+
+        newData = {...data}
+        const post = newData.posts.filter(post => post.id === id);
 
     }
 
