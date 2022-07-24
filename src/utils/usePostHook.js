@@ -45,9 +45,6 @@ const usePosts = (url) => {
             post = newData.posts.filter(data => data.id ===id)
             liked ? post[0].reactions = post[0].reactions -1 : post[0].reactions = post[0].reactions + 1
 
-
-            newData.posts = 
-
         }else {
             // if from individual post 
             liked ? newData.reactions = newData.reactions -1 : newData.reactions = newData.reactions + 1
