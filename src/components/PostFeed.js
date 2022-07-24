@@ -23,7 +23,7 @@ export default function PostFeed({post}) {
 
                 {/* Likes and caption */}
                 <div className="p-6">
-                    <div className="mb-3 font-color-777 mr-5 cursor-pointer">Like &nbsp;&nbsp;•&nbsp;&nbsp;{post.reactions} </div>
+                    <div className="mb-3 font-color-777 mr-5 cursor-pointer"><button>Liker</button> &nbsp;&nbsp;•&nbsp;&nbsp;{post.reactions} </div>
                     {post.body} 
                 <br></br>
 
