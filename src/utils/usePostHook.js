@@ -35,15 +35,13 @@ const usePosts = (url) => {
     }
 
     // Like button function 
-    const likeButtonFunction = (id) =>  {
+    const likeButtonFunction = (id, liked) =>  {
         let newData = []
         newData = {...data}
 
         // Filter the actual post 
         newData.reactions = newData.reactions + 1
-        setdata(newData)
-
-        console.log(newData.reactions)
+        setdata(liked)
 
     }
 
