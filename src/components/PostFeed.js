@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import LikeButton from "../components/LikeButton";
 
 
-export default function PostFeed({post, likeButtonFunction}) {
+export default function PostFeed({post, fromList, likeButtonFunction}) {
   return (
     <div>
            <div className="post-card border rounded-lg pt-3 mb-4 col-span-1">
@@ -23,7 +23,7 @@ export default function PostFeed({post, likeButtonFunction}) {
 
                 {/* Likes and caption */}
                 <div className="p-6">
-                    <div className="mb-3 font-color-777 mr-5 cursor-pointer"><LikeButton id={post.id} likeButtonFunction={likeButtonFunction}/> &nbsp;&nbsp;•&nbsp;&nbsp;{post.reactions} </div>
+                    <div className="mb-3 font-color-777 mr-5 cursor-pointer"><LikeButton id={post.id} fromList={fromList} likeButtonFunction={likeButtonFunction}/> &nbsp;&nbsp;•&nbsp;&nbsp;{post.reactions} </div>
                     {post.body} 
                 <br></br>
 
