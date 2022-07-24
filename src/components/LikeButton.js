@@ -3,14 +3,14 @@ import usePosts from "../utils/usePostHook";
 
 
 
-export default function LikeButton(id) {
+export default function LikeButton({id}) {
 
 // STATES 
-const {likeButtonFunction} = usePosts("/posts/"+id)
+const {likeButtonFunction} = usePosts()
 
 
 
   return (
-    <span onClick={}>Like</span>
+    <span onClick={likeButtonFunction}>Like</span>
   )
 }

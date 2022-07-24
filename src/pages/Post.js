@@ -32,7 +32,6 @@ const handleError = (errors) => {}
 
 // Submit comment form 
 const handleComment = (data) => {
-  console.log(data)
   addComment(data.comment)
 }
 

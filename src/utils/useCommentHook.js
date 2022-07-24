@@ -61,17 +61,15 @@ const useComments = (url) => {
 
         newData = {...data}
 
-
         // Setting new array 
         const comment = {
             id : id, 
             body : value, 
             postId: 3, user: {id: 21, username: "divine"},
         }
-       
 
+        // Merging the arrays 
         newData.comments.unshift(comment);
-        // newData = {...data.comments, ...newData}
 
         setdata(newData)  
         setisPending(false)      
