@@ -11,6 +11,7 @@ export default function LikeButton({id, likeButtonFunction}) {
     }
 
   return (
-    <span onClick={()=> updateLikeButton()}>Like</span>
+    // <span onClick={()=> updateLikeButton()}>Like</span>
+    <span className='text-default underline decoration-default' onClick={()=> updateLikeButton()}>Like</span>
   )
 }

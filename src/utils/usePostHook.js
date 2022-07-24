@@ -39,9 +39,11 @@ const usePosts = (url) => {
         let newData = []
         newData = {...data}
 
-        // Filter the actual post 
-        newData.reactions = newData.reactions + 1
-        setdata(liked)
+        // Like and unlike
+        liked ? newData.reactions = newData.reactions -1 : newData.reactions = newData.reactions + 1
+        
+        console.log(liked)
+        setdata(newData)
 
     }
 
