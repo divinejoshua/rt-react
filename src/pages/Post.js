@@ -20,7 +20,7 @@ const { register, handleSubmit, formState: { errors, isValid }  } = useForm({mod
 const {id} = useParams()
 
 // Get post 
-const {getPosts, data : posts, isPending : isPendingPost, messageSuccess : messageSuccessPost, messageError : messageErrorPost} = usePosts("/posts/"+id)
+const {getPosts, likeButtonFunction, data : posts, isPending : isPendingPost, messageSuccess : messageSuccessPost, messageError : messageErrorPost} = usePosts("/posts/"+id)
 const {getComments, deleteComment, addComment, data : comments, isPending : isPendingComment, messageSuccess : messageSuccessComment, messageError : messageErrorComment} = useComments("/comments/post/"+id)
 
 
@@ -99,7 +99,7 @@ useEffect(() => {
           <div className="mt-4">
             
             {/* Post */}
-            <PostFeed post={posts}/>
+            <PostFeed post={posts} likeButtonFunction={likeButtonFunction}/>
 
 
             <form  onSubmit={handleSubmit(handleComment, handleError)} noValidate className="mb-40">

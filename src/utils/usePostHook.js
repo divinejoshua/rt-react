@@ -18,7 +18,7 @@ const usePosts = (url) => {
 
 
         try{
-            // get all users 
+            // get all posts 
             const response = await axios.get(url)
             setdata(response.data)
         }
@@ -36,13 +36,14 @@ const usePosts = (url) => {
 
     // Like button function 
     const likeButtonFunction = (id) =>  {
-        const newData = []
+        let newData = []
         newData = {...data}
 
         // Filter the actual post 
-        const post = newData.posts.filter(post => post.id === id);
+        newData.reactions = newData.reactions + 1
+        setdata(newData)
 
-        console.log(newData)
+        console.log(newData.reactions)
 
     }
 
