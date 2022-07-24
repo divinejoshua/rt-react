@@ -37,14 +37,17 @@ const usePosts = (url) => {
     // Like button function 
     const likeButtonFunction = (id) =>  {
         const newData = []
-
         newData = {...data}
+
+        // Filter the actual post 
         const post = newData.posts.filter(post => post.id === id);
+
+        console.log(newData)
 
     }
 
 
-    return {getPosts, LikeButtonFunction, data, isPending, messageSuccess, messageError};
+    return {getPosts, likeButtonFunction, data, isPending, messageSuccess, messageError};
 }
  
 export default usePosts;
