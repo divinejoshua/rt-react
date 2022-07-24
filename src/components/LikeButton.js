@@ -7,7 +7,7 @@ export default function LikeButton({id, likeButtonFunction}) {
 
     const updateLikeButton = () =>{
        setliked(!liked)
-       likeButtonFunction(null, liked)
+       likeButtonFunction(id, liked)
     }
 
   return (

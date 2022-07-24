@@ -39,8 +39,12 @@ const usePosts = (url) => {
         let newData = []
         newData = {...data}
 
+        if(id){
+            console.log(id)
+        }
         // Like and unlike
         liked ? newData.reactions = newData.reactions -1 : newData.reactions = newData.reactions + 1
+        
         
         console.log(liked)
         setdata(newData)

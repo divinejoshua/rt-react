@@ -9,7 +9,7 @@ import usePost from "../utils/usePostHook";
 export default function HomeView() {
 
 // STATES 
-const {getPosts, data : posts, isPending, messageSuccess, messageError} = usePost("/posts?limit=8")
+const {getPosts, likeButtonFunction, data : posts, isPending, messageSuccess, messageError} = usePost("/posts?limit=8")
 
 
 //METHODS
@@ -78,7 +78,7 @@ useEffect(() => {
 
               {/* Post */}
               {Array.isArray(posts.posts) ? posts.posts.map(post => (
-                <PostFeed post={post} key={post.id}/>
+                <PostFeed post={post} key={post.id} likeButtonFunction={likeButtonFunction} fromList={true}/>
               )) : null}
 
 
