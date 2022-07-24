@@ -34,8 +34,12 @@ const usePosts = (url) => {
         
     }
 
+    const likeButtonFunction = (id) =>  {
 
-    return {getPosts, data, isPending, messageSuccess, messageError};
+    }
+
+
+    return {getPosts, LikeButtonFunction, data, isPending, messageSuccess, messageError};
 }
  
 export default usePosts;
