@@ -15,6 +15,7 @@ const {getPosts, likeButtonFunction, data : posts, isPending, messageSuccess, me
 // Pagination elements 
 const observer = useRef()
 
+// Get the last element to be rendered in the list 
 const lastElementRef = useCallback(node=>{
 
   // Return if a request is loading 
@@ -22,6 +23,12 @@ const lastElementRef = useCallback(node=>{
 
   // If there is a new last element, disconnect from previous last element 
   if(observer.current) observer.current.disconnect()
+
+  // Observe the new element 
+  observer.current = new IntersectionObserver(entries=>{
+
+  })
+  if (node) observer.current.observe(node)
   console.log(node)
 })
 
