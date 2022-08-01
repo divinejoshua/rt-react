@@ -12,6 +12,7 @@ export default function HomeView() {
 const [pagination, setpagination] = useState(0);
 const {getPosts, likeButtonFunction, data : posts, isPending, messageSuccess, messageError} = usePost("/posts?limit=8&skip="+pagination)
 
+// Pagination elements 
 const observer = useRef()
 const lastElement = useCallback()
 
@@ -84,7 +85,7 @@ useEffect(() => {
 
               {/* Post */}
               {Array.isArray(posts.posts) ? posts.posts.map(post => (
-                <PostFeed post={post} key={post.id} likeButtonFunction={likeButtonFunction} fromList={true} updatePosts={updatePosts}/>
+                <PostFeed post={post} key={post.id} likeButtonFunction={likeButtonFunction} fromList={true} updatePosts={updatePosts} ref={lastElement}/>
               )) : null}
 
 
