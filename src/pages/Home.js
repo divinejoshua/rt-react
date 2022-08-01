@@ -15,9 +15,10 @@ const {getPosts, likeButtonFunction, data : posts, isPending, messageSuccess, me
 // Pagination elements 
 const observer = useRef()
 
-const lastElementRef = useCallback(node=>(
+const lastElementRef = useCallback(node=>{
+  if(isPending) return
   console.log(node)
-))
+})
 
 
 //METHODS
@@ -89,8 +90,8 @@ useEffect(() => {
 
               {/* Post */}
               {Array.isArray(posts.posts) ? posts.posts.map((post,index) => (
-                <div>
-                  <div ref={lastElementRef}>/</div>
+                <div key={index}>
+                  {posts.posts.length === index+1 ? <div ref={lastElementRef}></div> : ''}
                   <PostFeed post={post} key={post.id} likeButtonFunction={likeButtonFunction} fromList={true} updatePosts={updatePosts} />
                 </div>
               )) : null}
