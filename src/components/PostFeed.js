@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 import LikeButton from "../components/LikeButton";
 
 
-export default function PostFeed({post, fromList, likeButtonFunction, updatePosts}) {
+export default function PostFeed({post, fromList, likeButtonFunction, updatePosts, lastElement}) {
 
   // pagination elements 
   const observer = useRef()
-  const lastElement = useCallback(node=>(
+  const lastElementRef = useCallback(node=>(
     console.log(node)
   ))
   
@@ -16,7 +16,7 @@ export default function PostFeed({post, fromList, likeButtonFunction, updatePost
   return (
     <div>
            <div className="post-card border rounded-lg pt-3 mb-4 col-span-1">
-            <div ref={lastElement}></div>
+            {lastElement ? <div ref={lastElementRef}>{String(lastElement)}</div> : ''}
                 {/* Post user  */}
                 <div className="mb-5">
                 <div className="float-left"><img src="https://robohash.org/namquaerataut.png" className="ml-3 border-2 p-1 rounded-full user-post-img"></img></div>
