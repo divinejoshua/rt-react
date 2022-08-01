@@ -10,7 +10,9 @@ const usePosts = (url) => {
     const [messageError, setmessageError] = useState(null);
 
     // METHODS 
-    const getPosts = async () => {
+    const getPosts = async (pagination) => {
+
+        if(pagination > 80){ return }
 
         setisPending(true);
         setmessageSuccess(null);

@@ -9,12 +9,15 @@ import usePost from "../utils/usePostHook";
 export default function HomeView() {
 
 // STATES 
-const {getPosts, likeButtonFunction, data : posts, isPending, messageSuccess, messageError} = usePost("/posts?limit=8")
+const [pagination, setpagination] = useState(0);
+const {getPosts, likeButtonFunction, data : posts, isPending, messageSuccess, messageError} = usePost("/posts?limit=8&skip="+pagination)
 
 
 //METHODS
-
-
+const updatePosts = () => {
+    pagination += 8
+    getPosts(pagination)
+}
 
   
 //USE EFFECT
@@ -22,7 +25,8 @@ useEffect(() => {
   console.log("home")
   
   // Get post list 
-  getPosts()
+  
+      getPosts(pagination)
 
   return () => {
   }
@@ -78,7 +82,7 @@ useEffect(() => {
 
               {/* Post */}
               {Array.isArray(posts.posts) ? posts.posts.map(post => (
-                <PostFeed post={post} key={post.id} likeButtonFunction={likeButtonFunction} fromList={true}/>
+                <PostFeed post={post} key={post.id} likeButtonFunction={likeButtonFunction} fromList={true} updatePosts={updatePosts}/>
               )) : null}
 
 
