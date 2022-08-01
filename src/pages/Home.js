@@ -89,7 +89,7 @@ useEffect(() => {
 
               {/* Post */}
               {Array.isArray(posts.posts) ? posts.posts.map((post,index) => (
-                <PostFeed post={post} key={post.id} likeButtonFunction={likeButtonFunction} fromList={true} updatePosts={updatePosts} useRef={posts.posts.length == index+1 ? true : false}/>
+                <PostFeed post={post} key={post.id} likeButtonFunction={likeButtonFunction} fromList={true} updatePosts={updatePosts} useRef={lastElementRef}/>
               )) : null}
 
 
