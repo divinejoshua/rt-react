@@ -5,6 +5,7 @@ import LikeButton from "../components/LikeButton";
 
 export default function PostFeed({post, fromList, likeButtonFunction, updatePosts}) {
 
+  // pagination elements 
   const observer = useRef()
   const lastElement = useCallback(node=>(
     console.log(node)
