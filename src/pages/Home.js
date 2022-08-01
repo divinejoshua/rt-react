@@ -19,7 +19,9 @@ const lastElementRef = useCallback(node=>{
 
   // Return if a request is loading 
   if(isPending) return
-  
+
+  // If there is a new last element, disconnect from previous last element 
+  if(observer.current) observer.current.disconnect()
   console.log(node)
 })
 
