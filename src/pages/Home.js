@@ -13,6 +13,11 @@ const [pagination, setpagination] = useState(0);
 const {getPosts, likeButtonFunction, data : posts, isPending, messageSuccess, messageError} = usePost("/posts?limit=8&skip="+pagination)
 
 // Pagination elements 
+const observer = useRef()
+
+const lastElementRef = useCallback(node=>(
+  console.log(node)
+))
 
 
 //METHODS
@@ -84,7 +89,7 @@ useEffect(() => {
 
               {/* Post */}
               {Array.isArray(posts.posts) ? posts.posts.map((post,index) => (
-                <PostFeed post={post} key={post.id} likeButtonFunction={likeButtonFunction} fromList={true} updatePosts={updatePosts} lastElement={posts.posts.length == index+1 ? true : false} useRef={3}/>
+                <PostFeed post={post} key={post.id} likeButtonFunction={likeButtonFunction} fromList={true} updatePosts={updatePosts} useRef={posts.posts.length == index+1 ? true : false}/>
               )) : null}
 
 
