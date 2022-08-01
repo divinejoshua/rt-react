@@ -14,7 +14,13 @@ const {getPosts, likeButtonFunction, data : posts, isPending, messageSuccess, me
 
 // Pagination elements 
 const observer = useRef()
-const lastElement = useCallback()
+
+const lastElement = useCallback(node=>(
+  console.log(node)
+))
+
+
+
 
 //METHODS
 const updatePosts = () => {
