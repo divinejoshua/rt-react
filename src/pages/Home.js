@@ -13,13 +13,6 @@ const [pagination, setpagination] = useState(0);
 const {getPosts, likeButtonFunction, data : posts, isPending, messageSuccess, messageError} = usePost("/posts?limit=8&skip="+pagination)
 
 // Pagination elements 
-const observer = useRef()
-
-const lastElement = useCallback(node=>(
-  console.log(node)
-))
-
-
 
 
 //METHODS
