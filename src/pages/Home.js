@@ -16,7 +16,10 @@ const {getPosts, likeButtonFunction, data : posts, isPending, messageSuccess, me
 const observer = useRef()
 
 const lastElementRef = useCallback(node=>{
+
+  // Return if a request is loading 
   if(isPending) return
+  
   console.log(node)
 })
 
