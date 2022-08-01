@@ -1,18 +1,13 @@
-import React, { useCallback, useRef } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import LikeButton from "../components/LikeButton";
 
 
-export default function PostFeed({post, fromList, likeButtonFunction, updatePosts}) {
-
-  const observer = useRef()
-  const lastElement = useCallback()
-
-
+export default function PostFeed({post, fromList, likeButtonFunction}) {
   return (
     <div>
            <div className="post-card border rounded-lg pt-3 mb-4 col-span-1">
-            <div ref={lastElement}></div>
+
                 {/* Post user  */}
                 <div className="mb-5">
                 <div className="float-left"><img src="https://robohash.org/namquaerataut.png" className="ml-3 border-2 p-1 rounded-full user-post-img"></img></div>
