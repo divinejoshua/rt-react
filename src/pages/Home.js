@@ -18,19 +18,25 @@ const observer = useRef()
 // Get the last element to be rendered in the list 
 const lastElementRef = useCallback(node=>{
 
-  // Return if a request is loading 
-  if(isPending) return
+    // Return if a request is loading 
+    if(isPending) return
 
-  // If there is a new last element, disconnect from previous last element 
-  if(observer.current) observer.current.disconnect()
+    // If there is a new last element, disconnect from previous last element 
+    if(observer.current) observer.current.disconnect()
 
-  // Observe the new element 
-  observer.current = new IntersectionObserver(entries=>{
+    // Observe the new element 
+    observer.current = new IntersectionObserver(entries=>{
 
-  })
-  if (node) observer.current.observe(node)
-  console.log(node)
-})
+      // Check if last element is visible 
+      if(entries[0].isIntersecting){
+        console.log('Visible')
+      }
+
+      
+    })
+    if (node) observer.current.observe(node)
+    console.log(node)
+},[isPending])
 
 
 //METHODS
