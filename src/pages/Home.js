@@ -21,6 +21,8 @@ const prevCountRef = useRef();
 //METHODS
 const updatePosts = () => {
     setpagination((prevpagination) => prevpagination + 8)
+      console.log(pagination)
+
 
     // getPosts(pagination)
 }
@@ -39,15 +41,14 @@ const lastElementRef = useCallback(node=>{
 
     // Check if last element is visible 
     if(entries[0].isIntersecting && pagination < 80){
-      // updatePosts()
-      console.log(pagination)
+      updatePosts()
     }
 
     
   })
   if (node) observer.current.observe(node)
   console.log(node)
-},[isPending])
+},[])
 
   
 //USE EFFECT
