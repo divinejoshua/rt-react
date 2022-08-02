@@ -22,6 +22,13 @@ const updatePosts = () => {
   // getPosts(pagination)
 }
 
+
+// Pagination elements 
+const observer = useRef()
+
+const prevCountRef = useRef();
+
+
 // Get the last element to be rendered in the list 
 const lastElementRef = useCallback(node=>{
 
@@ -116,10 +123,10 @@ useEffect(() => {
 
               {/* Post */}
               {Array.isArray(posts.posts) ? posts.posts.map((post,index) => (
-                <div key={index}>
-                  {posts.posts.length === index+1 ? <div ref={lastElementRef}></div> : ''}
-                  <PostFeed post={post} key={post.id} likeButtonFunction={likeButtonFunction} fromList={true} updatePosts={updatePosts} />
-                </div>
+               <div key={index}>
+                {posts.posts.length === index+1 ? <div ref={lastElementRef}></div> : ''}
+                <PostFeed post={post} key={post.id} likeButtonFunction={likeButtonFunction} fromList={true} updatePosts={updatePosts} />
+             </div>
               )) : null}
 
 
