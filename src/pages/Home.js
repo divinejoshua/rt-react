@@ -20,7 +20,7 @@ const prevCountRef = useRef();
 
 //METHODS
 const updatePosts = () => {
-    setpagination((prevpagination) => prevpagination + 8)
+    setpagination((pagination) => pagination + 8)
 
     // getPosts(pagination)
 }
@@ -55,7 +55,6 @@ useEffect(() => {
   console.log("home")
   
   // Get post list 
-  
       getPosts(pagination)
 
   return () => {
@@ -99,6 +98,7 @@ useEffect(() => {
                 <div>
                   <h4 className="font-bold mt-11 ml-2">divine.er</h4>
                   <h4 className="ml-2 font-color-777 font-size-x-small">Divine Erhomonsele</h4>
+                  <button onClick={() => setpagination((pagination) => pagination + 1)}>{pagination}</button>
                 </div>
               <button className='mt-12 ml-20 add-post-btn float-right mt-4 pl-5 pr-5 rounded-lg border'>Add post</button>
 
