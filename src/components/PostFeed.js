@@ -16,7 +16,7 @@ export default function PostFeed({post, fromList, likeButtonFunction, updatePost
                 <div className="mb-5">
                 <div className="float-left"><img src="https://robohash.org/namquaerataut.png" className="ml-3 border-2 p-1 rounded-full user-post-img"></img></div>
                 <div className="float-left mt-3 font-bold ml-2">divine.er</div>
-               <Link to={"/post/"+post.id}><div className="float-right mt-3 text-sky-400 mr-5 cursor-pointer">View</div></Link> 
+               <Link to={"/post/"+post.id}><div className="float-right mt-3 text-sky-400 mr-5 cursor-pointer">View {post.id}</div></Link> 
                 </div>
 
                 {/* Post image  */}
