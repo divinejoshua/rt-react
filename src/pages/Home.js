@@ -20,7 +20,7 @@ const prevCountRef = useRef();
 
 //METHODS
 const updatePosts = () => {
-    setpagination((pagination) => pagination + 8)
+    setpagination((prevpagination) => prevpagination + 8)
 
     // getPosts(pagination)
 }
