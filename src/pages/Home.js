@@ -16,41 +16,41 @@ const {getPosts, likeButtonFunction, data : posts, isPending, messageSuccess, me
 
 
 //METHODS
-const updatePosts = () => {
-  setpagination((prevpagination) => prevpagination + 8)
-      console.log(pagination)
-  // getPosts(pagination)
-}
+    const updatePosts = () => {
+      if(pagination > 80 || isPending){ return }
+      setpagination((prevpagination) => prevpagination + 8)
+        console.log(pagination)
+      getPosts(pagination)
+    }
 
 
-// Pagination elements 
-const observer = useRef()
+    // Pagination elements 
+    const observer = useRef()
+    const paginationUpdate = useRef(getPosts);
 
-const prevCountRef = useRef();
+    // Get the last element to be rendered in the list 
+    const lastElementRef = useCallback(node=>{
 
+    // Return if a request is loading 
+    if(isPending) return
 
-// Get the last element to be rendered in the list 
-const lastElementRef = useCallback(node=>{
+    // If there is a new last element, disconnect from previous last element 
+    if(observer.current) observer.current.disconnect()
 
-// Return if a request is loading 
-if(isPending) return
+    // Observe the new element 
+    observer.current = new IntersectionObserver(entries=>{
 
-// If there is a new last element, disconnect from previous last element 
-if(observer.current) observer.current.disconnect()
+      // Check if last element is visible 
+      if(entries[0].isIntersecting && pagination < 80){
+        // updatePosts()
+        paginationUpdate.current();
+      }
 
-// Observe the new element 
-observer.current = new IntersectionObserver(entries=>{
-
-  // Check if last element is visible 
-  if(entries[0].isIntersecting && pagination < 80){
-    updatePosts()
-  }
-
-  
-})
-if (node) observer.current.observe(node)
-console.log(node)
-},[isPending])
+      
+    })
+    if (node) observer.current.observe(node)
+    console.log(node)
+    },[isPending])
 
   
 //USE EFFECT
@@ -65,12 +65,10 @@ useEffect(() => {
 }, [])
 
 
-// pagination counter 
+// Pagination update use effect 
 useEffect(() => {
-  //assign the ref's current value to the count Hook
-  prevCountRef.current = pagination;
-}, [pagination]); //r
-
+  paginationUpdate.current = updatePosts;
+}, [updatePosts]);
 
   return (
     <div>
@@ -123,10 +121,11 @@ useEffect(() => {
               {/* Post */}
               {Array.isArray(posts.posts) ? posts.posts.map((post,index) => (
                <div key={index}>
-                {posts.posts.length === index+1 ? <div ref={lastElementRef}></div> : ''}
                 <PostFeed post={post} key={post.id} likeButtonFunction={likeButtonFunction} fromList={true} updatePosts={updatePosts} />
              </div>
               )) : null}
+
+            <div ref={lastElementRef}>yo</div>
 
 
 
