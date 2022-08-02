@@ -20,11 +20,11 @@ const prevCountRef = useRef();
 
 //METHODS
 const updatePosts = () => {
-    setpagination((prevpagination) => prevpagination + 8)
+    setpagination(prevpagination => prevpagination + 8)
       console.log(pagination)
 
 
-    // getPosts(pagination)
+    getPosts(pagination)
 }
 
 // Get the last element to be rendered in the list 
