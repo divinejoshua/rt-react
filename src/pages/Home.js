@@ -38,8 +38,8 @@ const lastElementRef = useCallback(node=>{
   observer.current = new IntersectionObserver(entries=>{
 
     // Check if last element is visible 
-    if(entries[0].isIntersecting && pagination< 80){
-      updatePosts()
+    if(entries[0].isIntersecting && pagination < 80){
+      // updatePosts()
       console.log(pagination)
     }
 
@@ -98,7 +98,7 @@ useEffect(() => {
                 <div>
                   <h4 className="font-bold mt-11 ml-2">divine.er</h4>
                   <h4 className="ml-2 font-color-777 font-size-x-small">Divine Erhomonsele</h4>
-                  <button onClick={() => setpagination((pagination) => pagination + 1)}>{pagination}</button>
+                  <button onClick={() => updatePosts()}>{pagination}</button>
                 </div>
               <button className='mt-12 ml-20 add-post-btn float-right mt-4 pl-5 pr-5 rounded-lg border'>Add post</button>
 
