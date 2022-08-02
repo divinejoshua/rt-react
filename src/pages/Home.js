@@ -18,7 +18,7 @@ const observer = useRef()
 
 //METHODS
 const updatePosts = () => {
-    setpagination(pagination += 8)
+    setpagination(pagination=>pagination+8)
     // getPosts(pagination)
 }
 
