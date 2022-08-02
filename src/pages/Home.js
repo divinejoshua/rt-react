@@ -15,10 +15,13 @@ const {getPosts, likeButtonFunction, data : posts, isPending, messageSuccess, me
 // Pagination elements 
 const observer = useRef()
 
+const prevCountRef = useRef();
+
 
 //METHODS
 const updatePosts = () => {
-    setpagination(pagination=>pagination+8)
+    setpagination((prevpagination) => prevpagination + 8)
+
     // getPosts(pagination)
 }
 
@@ -58,6 +61,13 @@ useEffect(() => {
   return () => {
   }
 }, [])
+
+
+// pagination counter 
+useEffect(() => {
+  //assign the ref's current value to the count Hook
+  prevCountRef.current = pagination;
+}, [pagination]); //r
 
 
   return (
