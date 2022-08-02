@@ -9,7 +9,7 @@ export default function MainHeader() {
   const [isLoading, setisLoading] = useState(false);
 
   // React hook form 
-const { register, handleSubmit, formState: { errors, isValid }  } = useForm({mode: 'all'});
+const { register, handleSubmit, formState: { isDirty }  } = useForm({mode: 'all'});
 
 
   return (
@@ -43,7 +43,7 @@ const { register, handleSubmit, formState: { errors, isValid }  } = useForm({mod
 
       <div className='header-content mt-4'>
       <div className='suggestion-box'>
-        yyooo
+        {isDirty ? 'true' : 'false'}
         </div>
       </div>
 
