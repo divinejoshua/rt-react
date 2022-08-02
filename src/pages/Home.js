@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import MainHeader from "../components/MainHeader";
 import MainSidebar from "../components/MainSidebar";
 import PostFeed from "../components/PostFeed";
@@ -13,9 +13,6 @@ const [pagination, setpagination] = useState(0);
 const {getPosts, likeButtonFunction, data : posts, isPending, messageSuccess, messageError} = usePost("/posts?limit=8&skip="+pagination)
 
 // Pagination elements 
-const observer = useRef()
-
-const prevCountRef = useRef();
 
 
 //METHODS
@@ -26,29 +23,6 @@ const updatePosts = () => {
 
     getPosts(pagination)
 }
-
-// Get the last element to be rendered in the list 
-const lastElementRef = useCallback(node=>{
-
-  // Return if a request is loading 
-  if(isPending) return
-
-  // If there is a new last element, disconnect from previous last element 
-  if(observer.current) observer.current.disconnect()
-
-  // Observe the new element 
-  observer.current = new IntersectionObserver(entries=>{
-
-    // Check if last element is visible 
-    if(entries[0].isIntersecting && pagination < 80){
-      updatePosts()
-    }
-
-    
-  })
-  if (node) observer.current.observe(node)
-  console.log(node)
-},[])
 
   
 //USE EFFECT
@@ -62,12 +36,6 @@ useEffect(() => {
   }
 }, [])
 
-
-// pagination counter 
-useEffect(() => {
-  //assign the ref's current value to the count Hook
-  prevCountRef.current = pagination;
-}, [pagination]); //r
 
 
   return (
@@ -120,10 +88,7 @@ useEffect(() => {
 
               {/* Post */}
               {Array.isArray(posts.posts) ? posts.posts.map((post,index) => (
-                <div key={index}>
-                  {posts.posts.length === index+1 ? <div ref={lastElementRef}></div> : ''}
                   <PostFeed post={post} key={post.id} likeButtonFunction={likeButtonFunction} fromList={true} updatePosts={updatePosts} />
-                </div>
               )) : null}
 
 
