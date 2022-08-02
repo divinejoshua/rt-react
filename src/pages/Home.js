@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, React } from "react";
 import MainHeader from "../components/MainHeader";
 import MainSidebar from "../components/MainSidebar";
 import PostFeed from "../components/PostFeed";
@@ -24,7 +24,12 @@ const updatePosts = () => {
     getPosts(pagination)
 }
 
-  
+const handleScroll = event => {
+  console.log('scrollTop: ', event.currentTarget.scrollTop);
+  console.log('offsetHeight: ', event.currentTarget.offsetHeight);
+};
+
+
 //USE EFFECT
 useEffect(() => {
   console.log("home")
@@ -82,13 +87,15 @@ useEffect(() => {
 
 
 
-            <div className="grid grid-cols-2 gap-4 mt-10">
+            <div className="grid grid-cols-2 gap-4 mt-10" onScroll={handleScroll} >
 
 
 
               {/* Post */}
               {Array.isArray(posts.posts) ? posts.posts.map((post,index) => (
+                <div key={index} >
                   <PostFeed post={post} key={post.id} likeButtonFunction={likeButtonFunction} fromList={true} updatePosts={updatePosts} />
+                </div>
               )) : null}
 
 
