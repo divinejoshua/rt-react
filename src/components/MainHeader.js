@@ -1,19 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from "react-hook-form"
+import useUsersList from '../utils/useUsersListHook';
 
 
 export default function MainHeader() {
 
   //STATES
-  const [isLoading, setisLoading] = useState(false);
-  const [clickSearchFirst, setclickSearchFirst] = useState(true);
+const [isLoading, setisLoading] = useState(false);
+const [clickSearchFirst, setclickSearchFirst] = useState(true);
+
+
+
+
 
   // React hook form 
-  const { register, handleSubmit, watch, formState: { errors, isDirty }  } = useForm({mode: 'all'});
+const { register, handleSubmit, watch, formState: { errors, isDirty }  } = useForm({mode: 'all'});
 const watchFields = watch(["search"]);
 
+const {getUsers, data : users, isPending, messageSuccess, messageError} = useUsersList("/users?limit=8&search?q="+watchFields[0])
 
+//METHODS
+const isDoneTyping = (event) =>{
+  console.log("Done")
+}
 
 //USE EFFECT
 useEffect(() => {
@@ -39,7 +49,7 @@ useEffect(() => {
           <center>
              <form onSubmit={handleSubmit()} noValidate >
               <input  className='search-box pl-5 rounded-lg focus:outline-none focus:border-default focus:ring-default focus:ring-0.5 focus:border-100 transition duration-0 hover:duration-150' 
-                      type='text' placeholder='Search'
+                      type='text' placeholder='Search' onKeyUp={isDoneTyping}
                       {...register('search', { required: true})}
                       >
               </input>
