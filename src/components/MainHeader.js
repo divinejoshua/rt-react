@@ -60,7 +60,7 @@ useEffect(() => {
 
       {watchFields[0] ? 
       <div className='header-content mt-4'>
-      <div className='suggestion-box'>
+      <div className='suggestion-box pl-6 pr-6 pt-4 pb-4'>
         {watchFields[0] ? 'true' : "false"}
         </div>
       </div>
