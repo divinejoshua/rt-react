@@ -25,7 +25,9 @@ const { register, handleSubmit, formState: { isDirty }  } = useForm({mode: 'all'
         <div className=' basis-1/3 pt-4'>
           <center>
             <input className='search-box pl-5 rounded-lg focus:outline-none focus:border-default focus:ring-default focus:ring-0.5 focus:border-100 transition duration-0 hover:duration-150' 
-                    type='text' placeholder='Search'>
+                    type='text' placeholder='Search'
+                    {...register('search')}
+                    >
             </input>
             </center>
         </div>
