@@ -22,7 +22,7 @@ const usePosts = (url) => {
         try{
             // get all posts 
             const response = await axios.get(url)
-            setdata(response.data)
+            setdata(...response.data)
         }
 
         catch ({ response  }){
