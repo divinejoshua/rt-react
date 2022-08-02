@@ -4,6 +4,13 @@ import { useForm } from "react-hook-form"
 
 
 export default function MainHeader() {
+
+  //STATES
+  const [isLoading, setisLoading] = useState(false);
+  // React hook form 
+const { register, handleSubmit, formState: { errors, isValid }  } = useForm({mode: 'all'});
+
+
   return (
 
  
