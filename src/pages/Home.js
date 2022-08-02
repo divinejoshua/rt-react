@@ -18,7 +18,7 @@ const {getPosts, likeButtonFunction, data : posts, isPending, messageSuccess, me
 //METHODS
 const updatePosts = () => {
   setpagination((prevpagination) => prevpagination + 8)
-
+      console.log(pagination)
   // getPosts(pagination)
 }
 
@@ -43,8 +43,7 @@ observer.current = new IntersectionObserver(entries=>{
 
   // Check if last element is visible 
   if(entries[0].isIntersecting && pagination < 80){
-    // updatePosts()
-    console.log(pagination)
+    updatePosts()
   }
 
   
