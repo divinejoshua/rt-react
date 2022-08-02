@@ -31,7 +31,7 @@ export default function MainHeader() {
           </div>
       </div>
 
-      <div className='fixed bg-white'>
+      <div className='header-content'>
       <div className='suggestion-box'>
         yyooo
         </div>
