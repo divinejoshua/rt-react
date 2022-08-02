@@ -13,9 +13,6 @@ const [pagination, setpagination] = useState(0);
 const {getPosts, likeButtonFunction, data : posts, isPending, messageSuccess, messageError} = usePost("/posts?limit=8&skip="+pagination)
 
 // Pagination elements 
-const observer = useRef()
-
-const prevCountRef = useRef();
 
 
 //METHODS
@@ -28,28 +25,17 @@ const updatePosts = () => {
 }
 
 // Get the last element to be rendered in the list 
-const lastElementRef = useCallback(node=>{
-
-  // Return if a request is loading 
-  if(isPending) return
-
-  // If there is a new last element, disconnect from previous last element 
-  if(observer.current) observer.current.disconnect()
-
-  // Observe the new element 
-  observer.current = new IntersectionObserver(entries=>{
-
-    // Check if last element is visible 
-    if(entries[0].isIntersecting && pagination < 80){
-      updatePosts()
-    }
-
-    
-  })
-  if (node) observer.current.observe(node)
-  console.log(node)
-},[])
-
+const observer = React.useRef(
+  new IntersectionObserver(
+    entries => {
+      const first = entries[0];
+      if (first.isIntersecting) {
+        loader.current();
+      }
+    },
+    { threshold: 1 }
+  )
+);
   
 //USE EFFECT
 useEffect(() => {
