@@ -124,7 +124,7 @@ useEffect(() => {
              </div>
               )) : posts[0].id}
 
-            <div ref={lastElementRef}>Loading</div>
+            <div ref={lastElementRef}>Loading...</div>
 
 
 
