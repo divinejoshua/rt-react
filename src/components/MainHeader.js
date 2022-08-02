@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from "react-hook-form"
 
@@ -15,7 +15,7 @@ const { register, handleSubmit, formState: { errors, isDirty }  } = useForm({mod
 //USE EFFECT
 useEffect(() => {
   // Validate the form on page load
-  handleSubmit(handleLogin)
+  handleSubmit()
 
   return () => {
   }
