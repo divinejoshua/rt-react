@@ -4,7 +4,7 @@ import AuthSidebar from '../../components/AuthSidebar';
 import { useForm } from "react-hook-form"
 
 
-export default function RegisterView() {
+export default function RegisterView() {  
 
 //STATES
 const [isLoading, setisLoading] = useState(false);
