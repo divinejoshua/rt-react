@@ -17,25 +17,35 @@ const {getPosts, likeButtonFunction, data : posts, isPending, messageSuccess, me
 
 //METHODS
 const updatePosts = () => {
-    setpagination(prevpagination => prevpagination + 8)
-      console.log(pagination)
+  setpagination((prevpagination) => prevpagination + 8)
 
-
-    getPosts(pagination)
+  // getPosts(pagination)
 }
 
 // Get the last element to be rendered in the list 
-const observer = React.useRef(
-  new IntersectionObserver(
-    entries => {
-      const first = entries[0];
-      if (first.isIntersecting) {
-        loader.current();
-      }
-    },
-    { threshold: 1 }
-  )
-);
+const lastElementRef = useCallback(node=>{
+
+// Return if a request is loading 
+if(isPending) return
+
+// If there is a new last element, disconnect from previous last element 
+if(observer.current) observer.current.disconnect()
+
+// Observe the new element 
+observer.current = new IntersectionObserver(entries=>{
+
+  // Check if last element is visible 
+  if(entries[0].isIntersecting && pagination < 80){
+    // updatePosts()
+    console.log(pagination)
+  }
+
+  
+})
+if (node) observer.current.observe(node)
+console.log(node)
+},[isPending])
+
   
 //USE EFFECT
 useEffect(() => {
