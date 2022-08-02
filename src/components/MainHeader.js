@@ -45,7 +45,7 @@ const { register, handleSubmit, formState: { isDirty }  } = useForm({mode: 'all'
 
       <div className='header-content mt-4'>
       <div className='suggestion-box'>
-        {isDirty ? 'true' : 'false'}
+        {isDirty.search ? 'true' : 'false'}
         </div>
       </div>
 
