@@ -31,7 +31,7 @@ export default function MainHeader() {
           </div>
       </div>
 
-      <div className='header-content'>
+      <div className='header-content mt-4'>
       <div className='suggestion-box'>
         yyooo
         </div>
