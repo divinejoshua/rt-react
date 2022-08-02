@@ -54,7 +54,11 @@ const handleRegister = (data) => {
   
   // Form validation 
   const formValidation = {
-    fullname: {required: "Fullname is required",},
+    fullname: {required: "Fullname is required",
+        validate: {
+            containCharacters: v => /\S/.test(v) || "Fullname is required",
+        }
+    },
     email: { required: "Email is required" ,
       pattern: {
         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
