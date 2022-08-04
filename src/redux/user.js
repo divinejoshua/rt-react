@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 // STATES 
 const initialState = {
-  email: 'divine@gmail.com',
+  email: '',
 }
 
 export const userDetails = createSlice({
@@ -10,9 +10,15 @@ export const userDetails = createSlice({
   initialState,
   reducers: {
     
-    registerEmail: (state, action) => {
-      state.email += action.payload
+    // Register user email from login / register 
+    registerEmail: ({state, dispatch}, action) => {
+      state.email = action.payload
+      dispatch(testEmail("worked"))
     },
+    testEmail: (state, action) => {
+        console.log(action.payload)
+        state.email = "worked"
+      },
 
   },
 })
