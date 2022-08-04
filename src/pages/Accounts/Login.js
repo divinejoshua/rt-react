@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
 import AuthSidebar from '../../components/AuthSidebar';
 import { useForm } from "react-hook-form"
 
@@ -18,6 +19,8 @@ const navigate = useNavigate();
 // React hook form 
 const { register, handleSubmit, formState: { errors, isValid }  } = useForm({mode: 'all'});
 
+// Redux
+const dispatch = useDispatch()
 
 
 // METHODS
@@ -37,6 +40,9 @@ const handleLogin = (data) => {
 
   // Submit 
   console.log(data);
+
+  // Storing the data in redux
+  dispatch(registerEmail(data.email))
 }
 
 
