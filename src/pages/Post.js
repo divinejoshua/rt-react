@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useParams } from "react-router-dom";
 import MainHeader from "../components/MainHeader";
 import MainSidebar from "../components/MainSidebar";
@@ -26,7 +26,6 @@ const {getComments, deleteComment, addComment, data : comments, isPending : isPe
 
 // User details from the store
 const userDetails = useSelector((state) => state.userDetails)
-const dispatch = useDispatch()
 
 
 //METHODS
