@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import AuthSidebar from '../../components/AuthSidebar';
 import { useForm } from "react-hook-form"
+import { registerEmail,testEmail } from '../../redux/user';
 
 export default function LoginView() {
   
