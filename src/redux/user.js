@@ -11,13 +11,17 @@ export const userDetails = createSlice({
   reducers: {
     
     // Register user email from login / register 
-    registerEmail: ({state, dispatch}, action) => {
+    registerEmail: (state, action) => {
       state.email = action.payload
-      dispatch(testEmail("worked"))
+
+    //   Calling another reducer function in a reducer function 
+      userDetails.caseReducers.testEmail(state, action);
+
     },
+
+    // This reducer function is a test whic is called immediately a reducer function is done 
     testEmail: (state, action) => {
         console.log(action.payload)
-        state.email = "worked"
       },
 
   },
