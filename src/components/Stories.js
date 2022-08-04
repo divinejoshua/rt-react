@@ -6,6 +6,12 @@ export default function Stories() {
 
   // STATES 
   const {getUsers, data : users, isPending, messageSuccess, messageError} = useUsersList("/users?limit=8")
+
+  // Redux
+const userStories = useSelector((state) => state.userStories)
+
+
+
   // METHODS 
 
 
@@ -14,6 +20,7 @@ export default function Stories() {
 
     // Get users list 
     getUsers()
+    useDisP
 
     return () => {
     };
