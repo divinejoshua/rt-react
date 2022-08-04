@@ -5,6 +5,7 @@ export default function MainSidebar() {
 
   // STATES 
   const {getUsers, data : users, isPending, messageSuccess, messageError} = useUsersList("/users?limit=8&skip=5")
+
   // METHODS 
 
 
