@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useSelector } from 'react-redux'
 import MainHeader from "../components/MainHeader";
 import MainSidebar from "../components/MainSidebar";
 import PostFeed from "../components/PostFeed";
@@ -13,6 +14,11 @@ const [pagination, setpagination] = useState(0);
 const {getPosts, likeButtonFunction, data : posts, isPending, messageSuccess, messageError} = usePost("/posts?limit=8&skip="+pagination)
 
 // Pagination elements 
+const observer = useRef()
+const paginationUpdate = useRef(getPosts);
+
+// Redux
+const userDetails = useSelector((state) => state.userDetails)
 
 
 //METHODS
@@ -23,10 +29,6 @@ const {getPosts, likeButtonFunction, data : posts, isPending, messageSuccess, me
       getPosts(pagination)
     }
 
-
-    // Pagination elements 
-    const observer = useRef()
-    const paginationUpdate = useRef(getPosts);
 
     // Get the last element to be rendered in the list 
     const lastElementRef = useCallback(node=>{
@@ -97,7 +99,9 @@ useEffect(() => {
                 <img src="https://robohash.org/namquaerataut.png" className="cursor-pointer mt-6 border-2 p-1 rounded-full profile-card-image"></img>
                 <div>
                   <h4 className="font-bold mt-11 ml-2">divine.er</h4>
-                  <h4 className="ml-2 font-color-777 font-size-x-small">Divine Erhomonsele</h4>
+                  {userDetails.email ?
+                    <h4 className="ml-2 font-color-777 font-size-x-small">{userDetails.email}</h4>
+                  : <h4 className="ml-2 font-color-777 font-size-x-small">Divine Erhomonsele</h4>}
                 </div>
               <button className='mt-12 ml-20 add-post-btn float-right mt-4 pl-5 pr-5 rounded-lg border'>Add post</button>
 
