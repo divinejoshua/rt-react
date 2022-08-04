@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "../api/axios";
 
-const usePosts = (url) => {
+const usePosts = (url, fromIndividualPost) => {
 
     // STATES 
     const [data, setdata] = useState([]);
@@ -24,9 +24,21 @@ const usePosts = (url) => {
             const response = await axios.get(url)
             let newData = []
             newData = data
-            newData.push(...response.data.posts)
+
+            // If the post is from individual post id, else if its a list from the home page 
+            if(fromIndividualPost){
+                // To indiviual post ID 
+                newData = response.data
+                setdata(newData)
+
+            }else {
+                // To home page 
+                newData.push(...response.data.posts)
+                setdata(newData)
+            }
+          
             
-            setdata(newData)
+         
         }
 
         catch ({ response  }){
