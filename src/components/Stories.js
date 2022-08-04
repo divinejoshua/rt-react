@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import useUsersList from '../utils/useUsersListHook'
+
 
 
 export default function Stories() {
@@ -9,6 +11,7 @@ export default function Stories() {
 
   // Redux
 const userStories = useSelector((state) => state.userStories)
+const dispatch = useDispatch()
 
 
 
@@ -19,8 +22,11 @@ const userStories = useSelector((state) => state.userStories)
   useEffect(() => {
 
     // Get users list 
-    getUsers()
-    useDisP
+    if(!Array.isArray(users.users)){
+      getUsers()
+      dispatch(users.users[0].username) 
+    }
+   
 
     return () => {
     };
