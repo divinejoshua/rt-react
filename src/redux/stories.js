@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 // STATES 
 const initialState = {
-  stories: [],
+  stories: "yoo",
 }
 
 export const userStories = createSlice({
