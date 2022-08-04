@@ -49,7 +49,6 @@ const {getPosts, likeButtonFunction, data : posts, isPending, messageSuccess, me
       
     })
     if (node) observer.current.observe(node)
-    console.log(node)
     },[isPending])
 
   
