@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from "react-router-dom";
 import MainHeader from "../components/MainHeader";
 import MainSidebar from "../components/MainSidebar";
@@ -20,8 +21,12 @@ const { register, handleSubmit, formState: { errors, isValid }  } = useForm({mod
 const {id} = useParams()
 
 // Get post 
-const {getPosts, likeButtonFunction, data : posts, isPending : isPendingPost, messageSuccess : messageSuccessPost, messageError : messageErrorPost} = usePosts("/posts/"+id)
+const {getPosts, likeButtonFunction, data : posts, isPending : isPendingPost, messageSuccess : messageSuccessPost, messageError : messageErrorPost} = usePosts("/posts/"+id, true)
 const {getComments, deleteComment, addComment, data : comments, isPending : isPendingComment, messageSuccess : messageSuccessComment, messageError : messageErrorComment} = useComments("/comments/post/"+id)
+
+// User details from the store
+const userDetails = useSelector((state) => state.userDetails)
+const dispatch = useDispatch()
 
 
 //METHODS
@@ -85,7 +90,9 @@ useEffect(() => {
                 <img src="https://robohash.org/namquaerataut.png" className="cursor-pointer mt-6 border-2 p-1 rounded-full profile-card-image"></img>
                 <div>
                   <h4 className="font-bold mt-11 ml-2">divine.er</h4>
-                  <h4 className="ml-2 font-color-777 font-size-x-small">Divine Erhomonsele</h4>
+                  {userDetails.email ?
+                    <h4 className="ml-2 font-color-777 font-size-x-small">{userDetails.email}</h4>
+                  : <h4 className="ml-2 font-color-777 font-size-x-small">Divine Erhomonsele</h4>}
                 </div>
               <button className='mt-12 ml-20 add-post-btn float-right mt-4 pl-5 pr-5 rounded-lg border'>Add post</button>
 
