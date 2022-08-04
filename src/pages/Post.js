@@ -24,7 +24,7 @@ const {id} = useParams()
 const {getPosts, likeButtonFunction, data : posts, isPending : isPendingPost, messageSuccess : messageSuccessPost, messageError : messageErrorPost} = usePosts("/posts/"+id, true)
 const {getComments, deleteComment, addComment, data : comments, isPending : isPendingComment, messageSuccess : messageSuccessComment, messageError : messageErrorComment} = useComments("/comments/post/"+id)
 
-// User details from the store
+// Redux
 const userDetails = useSelector((state) => state.userDetails)
 
 
