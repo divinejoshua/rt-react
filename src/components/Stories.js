@@ -39,7 +39,7 @@ const dispatch = useDispatch()
   useEffect(() => {
 
     // Get users list from store (Dispatch from async value)
-    if(!Array.isArray(userStories.stories.users)){
+    if(Array.isArray(users.users)){
       console.log("hiii")
         dispatch(registerStories(users)) 
     } 
