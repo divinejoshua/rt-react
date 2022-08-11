@@ -40,7 +40,6 @@ const dispatch = useDispatch()
 
     // Get users list from store (Dispatch from async value)
     if(Array.isArray(users.users)){
-      console.log("hiii")
         dispatch(registerStories(users)) 
     } 
 
