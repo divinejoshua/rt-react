@@ -55,15 +55,16 @@ const usePosts = (url, fromIndividualPost) => {
     // Like button function 
     const likeButtonFunction = (id, fromList, liked) =>  {
         let newData = []
-        newData = [...data] 
 
         // If from the list of all post 
         if(fromList){
+            newData = [...data] 
             let post  = newData.filter(data => data.id ===id)
             liked ? post[0].reactions = post[0].reactions -1 : post[0].reactions = post[0].reactions + 1
 
         }else {
             // if from individual post 
+            newData = {...data} 
             liked ? newData.reactions = newData.reactions -1 : newData.reactions = newData.reactions + 1
         }
         
