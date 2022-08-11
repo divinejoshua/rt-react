@@ -60,6 +60,7 @@ const usePosts = (url, fromIndividualPost) => {
 
         // If from the list of all post 
         if(fromList){
+            console.log(newData)
             post = newData.filter(data => data.id ===id)
             liked ? post[0].reactions = post[0].reactions -1 : post[0].reactions = post[0].reactions + 1
 
