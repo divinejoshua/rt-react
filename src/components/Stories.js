@@ -23,9 +23,9 @@ const dispatch = useDispatch()
   //USE EFFECT
   useEffect(() => {
 
-    // Get all user stiries
+    // Get all user stories
 
-    // Checks if data already exist in redux 
+    // Checks if data doesent exist in redux and then gets data
     if(!Array.isArray(userStories.stories.users)){
       getUsers()
     }
@@ -38,7 +38,7 @@ const dispatch = useDispatch()
   // Dispatch async function 
   useEffect(() => {
 
-    // Get users list from store (Dispatch from async value)
+    // Get users list and stores them in store (Dispatch from async value)
     if(Array.isArray(users.users)){
         dispatch(registerStories(users)) 
     } 
