@@ -13,7 +13,6 @@ export const userStories = createSlice({
     //User stories list 
     registerStories: (state, action) => {
       state.stories = action.payload
-      console.log(state.stories)
     },
 
   },
