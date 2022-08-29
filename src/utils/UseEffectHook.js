@@ -1,5 +1,8 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { registerGetNewToken } from "./redux/auth";
+import { useDispatch } from 'react-redux'
+
 
 const UseEffectHook = () => {
 
@@ -7,9 +10,19 @@ const UseEffectHook = () => {
     const { pathname }  = useLocation()
 
 
+    // Get New access token if none 
+    const refreshToken = () => {
+        dispatch(registerGetNewToken()).then(() =>{
+            setpageLoad(true)
+        })
+    }
+    
+
+
+
     // Use Effect hook 
     useEffect(() => {
-        console.log("Yooooo")
+        console.log(pathname)
         return () => {
     
         // Scroll to top for all pages
