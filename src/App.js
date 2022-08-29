@@ -6,13 +6,9 @@ import HomeView from './pages/Home';
 import PostView from './pages/Post';
 import PageNotFound from './pages/Error/404';
 import UseEffectHook from "./utils/UseEffectHook";
-import { useState } from 'react';
-
 
 function App() {
 
-  const dispatch = useDispatch()
-  const [pageLoad, setpageLoad] = useState(true);
 
 
  // The return render  
