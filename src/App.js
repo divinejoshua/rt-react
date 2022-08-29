@@ -5,6 +5,7 @@ import RegisterView from './pages/Accounts/Register';
 import HomeView from './pages/Home';
 import PostView from './pages/Post';
 import PageNotFound from './pages/Error/404';
+import AuthToken from './components/AuthToken';
 import UseEffectHook from "./utils/UseEffectHook";
 
 function App() {
@@ -23,12 +24,12 @@ function App() {
           <Routes>
 
           
-
+      <Route element={<AuthToken/>}>
             {/* Home  */}
             <Route path="/" element={<HomeView/>}/>
-
             {/* Post view  */}
             <Route path="/post/:id" element={<PostView/>}/>
+      </Route>
 
             {/* Login  */}
             <Route path="/accounts/login" element={<LoginView/>}/>

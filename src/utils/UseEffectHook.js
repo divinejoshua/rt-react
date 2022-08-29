@@ -1,33 +1,44 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { registerGetNewToken } from "../redux/auth";
 import { useDispatch } from 'react-redux'
-import useToken  from "./useTokenHook";
+import { registerAccessToken } from '../redux/auth';
+import { useSelector } from 'react-redux'
+import axios from "../api/axios";
+import { useLocation } from "react-router-dom";
 
 
 const UseEffectHook = () => {
 
 
-    // Redux 
+    const { pathname }  = useLocation()    
+
+     // Redux 
     const dispatch = useDispatch()
+    const access_token = useSelector((state) => state.userAccessToken.access_token)
+    const access_token_loader = useSelector((state) => state.userAccessToken.access_token_loader)
 
-    const { getNewAccessToken } = useToken()
-
-    const { pathname }  = useLocation()
-
-
-    // Get New access token if none 
-    const refreshToken = () => {
-        dispatch(registerGetNewToken())
-    }
-    
+     const getNewAccessToken = async () =>{
+         try {
+             let response = await axios.post("/accounts/auth/token/refresh/", {'refresh': localStorage.getItem('refresh')})
+             dispatch(registerAccessToken(response.data.access))
+         }
+         catch {
+             console.log("An error occured")
+         }
+        
+         
+     }
 
 
 
     // Use Effect hook 
     useEffect(() => {
         console.log(pathname)
-        getNewAccessToken()
+
+        if(!access_token){
+            getNewAccessToken()
+        } else {
+            console.log("access token")
+        }
         // refreshToken()
         return () => {
     

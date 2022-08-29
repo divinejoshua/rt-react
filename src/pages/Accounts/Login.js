@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import AuthSidebar from '../../components/AuthSidebar';
 import { useForm } from "react-hook-form"
@@ -16,6 +16,10 @@ const [formError, setformError] = useState(false);
 const [formAuthBtnError, setformAuthBtnError] = useState(false);
 const [firstValidation, setfirstValidation] = useState(false);
 const [showPassword, setshowPassword] = useState(false);
+
+// Url from which we are to redirect to after login 
+const location = useLocation();
+const from = location.state?.from?.pathname || "/";
 
 // Use navigate 
 const navigate = useNavigate();
@@ -54,7 +58,7 @@ const handleLogin = async (data) => {
     localStorage.setItem("refresh", response.data.refresh_token);
 
     // Redirect to home page 
-    navigate("/", { replace: true });
+    navigate(from, { replace: true });
     
   
   } catch (e){

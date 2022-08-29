@@ -5,6 +5,7 @@ import axios from '../api/axios';
 // STATES 
 const initialState = {
     access_token: '',
+    access_token_loader: false,
 }
 
 export const userAccessToken = createSlice({
@@ -15,7 +16,7 @@ export const userAccessToken = createSlice({
       //User stories list 
       registerAccessToken: (state, action) => {
         state.access_token = action.payload
-        
+
         // Add axios token to axios headers 
         if(state.access_token){
             // Set axios authorisation headers 
