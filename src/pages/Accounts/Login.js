@@ -5,6 +5,7 @@ import AuthSidebar from '../../components/AuthSidebar';
 import { useForm } from "react-hook-form"
 import { registerEmail } from '../../redux/user';
 import axios from '../../api/axios';
+import { registerAccessToken } from '../../redux/auth';
 
 export default function LoginView() {
   
@@ -45,7 +46,11 @@ const handleLogin = async (data) => {
 
     let response = await axios.post("http://127.0.0.1:8000/accounts/auth/login/", form)
 
-    console.log(response.data)
+    // Storing the data in redux
+    dispatch(registerEmail(data.email))
+    dispatch(registerAccessToken(response.data.access_token))
+
+
     // navigate("/", { replace: true });
     
   
@@ -60,13 +65,6 @@ const handleLogin = async (data) => {
     setisDisabled(false)
   }
 
-
-  
-  // Submit 
-  console.log(data);
-
-  // Storing the data in redux
-  dispatch(registerEmail(data.email))
 }
 
 
