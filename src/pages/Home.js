@@ -1,10 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useSelector } from 'react-redux'
+import axios from "../api/axios";
 import MainHeader from "../components/MainHeader";
 import MainSidebar from "../components/MainSidebar";
 import PostFeed from "../components/PostFeed";
 import Stories from "../components/Stories";
+import { registerEmail } from "../redux/user";
 import usePost from "../utils/usePostHook";
+import { useDispatch } from 'react-redux'
 
 
 export default function HomeView() {
@@ -18,6 +21,7 @@ const observer = useRef()
 const paginationUpdate = useRef(getPosts);
 
 // Redux
+const dispatch = useDispatch()
 const userDetails = useSelector((state) => state.userDetails)
 
 
@@ -53,10 +57,28 @@ const userDetails = useSelector((state) => state.userDetails)
     if (node) observer.current.observe(node)
     },[isPending])
 
+
+
+    // Get the logged in user from the backend 
+    const getLoggedInUser = async () =>{
+      try{
+        let response = await axios.get('http://127.0.0.1:8000/accounts/user')
+        dispatch(registerEmail(response.data.email))
+      }
+      catch {
+        console.log("An error occured")
+      }
+
+    }
+
+
+
+
   
 //USE EFFECT
 useEffect(() => {
   console.log("home")
+  getLoggedInUser()
   
   // Get post list 
       // getPosts(pagination)
