@@ -5,7 +5,7 @@ import axios from '../api/axios';
 // STATES 
 const initialState = {
     access_token: '',
-    access_token_loader: false,
+    access_token_loader: true,
 }
 
 export const userAccessToken = createSlice({
@@ -28,8 +28,8 @@ export const userAccessToken = createSlice({
 
 
     //   Get a new access token from refresh token 
-      registerGetNewToken: (state, action) =>{
-        console.log(state.access_token+"ererere")
+      registerAccess_token_loader: (state, action) =>{
+        state.access_token_loader = action.payload
 
       }
 
@@ -38,6 +38,6 @@ export const userAccessToken = createSlice({
   })
 
 // Action creators are generated for each case reducer function
-export const { registerAccessToken, registerGetNewToken } = userAccessToken.actions
+export const { registerAccessToken, registerAccess_token_loader } = userAccessToken.actions
 
 export default userAccessToken.reducer

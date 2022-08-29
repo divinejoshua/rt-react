@@ -13,8 +13,8 @@ const useToken = () => {
             let response = await axios.post("/accounts/auth/token/refresh/", {'refresh': localStorage.getItem('refresh')})
             dispatch(registerAccessToken(response.data.access))
         }
-        catch {
-            console.log("An error occured")
+        catch (error){
+            console.log(error.response.status)
         }
        
         

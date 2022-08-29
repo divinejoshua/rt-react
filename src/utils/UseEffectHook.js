@@ -1,15 +1,18 @@
 import { useEffect } from "react";
 import { useDispatch } from 'react-redux'
-import { registerAccessToken } from '../redux/auth';
+import { registerAccessToken, registerAccess_token_loader } from '../redux/auth';
 import { useSelector } from 'react-redux'
 import axios from "../api/axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 const UseEffectHook = () => {
 
 
-    const { pathname }  = useLocation()    
+    const { pathname }  = useLocation()   
+    
+    // Use navigate 
+    const navigate = useNavigate();
 
      // Redux 
     const dispatch = useDispatch()
@@ -19,10 +22,16 @@ const UseEffectHook = () => {
      const getNewAccessToken = async () =>{
          try {
              let response = await axios.post("/accounts/auth/token/refresh/", {'refresh': localStorage.getItem('refresh')})
-             dispatch(registerAccessToken(response.data.access))
+             dispatch(registerAccessToken(response.data.access)).then(() =>{
+                dispatch(registerAccess_token_loader(false))
+             })
+             
          }
-         catch {
-             console.log("An error occured")
+         catch (error){
+            if(error?.response?.status == 401){
+                navigate("/accounts/login", { from: pathname }, { replace: true });
+            }
+
          }
         
          

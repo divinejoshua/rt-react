@@ -1,18 +1,11 @@
 import { useLocation, Navigate, Outlet } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from "react";
-import axios from "../api/axios";
-import { registerAccessToken } from '../redux/auth';
-
-
 export default function AuthToken() {
 
-
-    const location = useLocation();
-    const [loadingToken, setLoadingToken] = useState(true)
+    const access_token_loader = useSelector((state) => state.userAccessToken.access_token_loader)
 
     // Redux 
-    const dispatch = useDispatch()
     const access_token = useSelector((state) => state.userAccessToken.access_token)
     
 
@@ -29,8 +22,7 @@ export default function AuthToken() {
    
         access_token 
             ? <Outlet />
-            : !access_token && loadingToken ?  'Loading...'
-            : !loadingToken &&  !access_token ? <Navigate to="/accounts/login" state={{ from: location }} replace /> 
+            : !access_token && access_token_loader ?  'Loading...'
             : ''
     );
 
