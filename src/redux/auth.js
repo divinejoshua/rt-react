@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import axios from '../api/axios';
 
 
 // STATES 
@@ -14,7 +15,6 @@ export const userAccessToken = createSlice({
       //User stories list 
       registerAccessToken: (state, action) => {
         state.access_token = action.payload
-        const axios = require('axios')
         
         // Add axios token to axios headers 
         if(state.access_token){

@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import AuthSidebar from '../../components/AuthSidebar';
 import { useForm } from "react-hook-form"
 import { registerEmail } from '../../redux/user';
-import axios from 'axios';
+import axios from '../../api/axios';
 import { registerAccessToken } from '../../redux/auth';
 
 export default function LoginView() {
@@ -51,7 +51,7 @@ const handleLogin = async (data) => {
     dispatch(registerAccessToken(response.data.access_token))
 
     // Redirect to home page 
-    axios.defaults.headers.common['Authorization'] = " your fresh authorization token available for all requests";
+    // axios.defaults.headers.common['Authorization'] = " your fresh authorization token available for all requests";
 
     let res = await axios.get('/accounts/user')
     // navigate("/", { replace: true });
