@@ -3,13 +3,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import AuthSidebar from '../../components/AuthSidebar';
 import { useForm } from "react-hook-form"
-import { registerEmail,testEmail } from '../../redux/user';
+import { registerEmail } from '../../redux/user';
+import axios from '../../api/axios';
 
 export default function LoginView() {
   
 //STATES
 const [isLoading, setisLoading] = useState(false);
 const [isDisabled, setisDisabled] = useState(false);
+const [formError, setformError] = useState(false);
 const [formAuthBtnError, setformAuthBtnError] = useState(false);
 const [firstValidation, setfirstValidation] = useState(false);
 const [showPassword, setshowPassword] = useState(false);
@@ -26,25 +28,48 @@ const dispatch = useDispatch()
 
 // METHODS
 // Login Function on success
-const handleLogin = (data) => {
+const handleLogin = async (data) => {
 
   // Submit the form...This is to Simulate an api call for 3 seconds 
   setisLoading(true)
   setisDisabled(true)
+  setformError(false)
 
-  setTimeout(() => { 
+
+  let form = {
+    username: data.email,
+    password: data.password,
+  }
+
+  try {
+
+    let response = await axios.post("http://127.0.0.1:8000/accounts/auth/login/", form)
+
+    console.log(response.data)
+    // navigate("/", { replace: true });
+    
+  
+  } catch (e){
+
+    setformError(true)
+    handleError()
+  
+  } finally {
+
     setisLoading(false)
     setisDisabled(false)
-    navigate("/");
+  }
 
-  }, 3000)
 
+  
   // Submit 
   console.log(data);
 
   // Storing the data in redux
   dispatch(registerEmail(data.email))
 }
+
+
 
 
 // Function if error on react form handling
@@ -108,6 +133,8 @@ useEffect(() => {
 
           <form onSubmit={handleSubmit(handleLogin, handleError)} noValidate>
 
+            {/* If there is any form error  */}
+            { formError && <p className='text-danger'>An error occured</p> }
 
             {/*Form input  */}
             <div className='mt-8'>
