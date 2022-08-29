@@ -25,11 +25,18 @@ export const userAccessToken = createSlice({
         }
       },
 
+
+    //   Get a new access token from refresh token 
+      registerGetNewToken: (state, action) =>{
+        console.log(state.access_token+"ererere")
+
+      }
+
   
     },
   })
 
 // Action creators are generated for each case reducer function
-export const { registerAccessToken } = userAccessToken.actions
+export const { registerAccessToken, registerGetNewToken } = userAccessToken.actions
 
 export default userAccessToken.reducer

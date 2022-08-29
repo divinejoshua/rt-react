@@ -50,11 +50,11 @@ const handleLogin = async (data) => {
     dispatch(registerEmail(data.email))
     dispatch(registerAccessToken(response.data.access_token))
 
-    // Redirect to home page 
-    // axios.defaults.headers.common['Authorization'] = " your fresh authorization token available for all requests";
+    // Set local storage for refresh token 
+    localStorage.setItem("refresh", response.data.refresh_token);
 
-    let res = await axios.get('/accounts/user')
-    // navigate("/", { replace: true });
+    // Redirect to home page 
+    navigate("/", { replace: true });
     
   
   } catch (e){

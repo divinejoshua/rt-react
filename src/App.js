@@ -22,31 +22,33 @@ function App() {
     <Router>
       <UseEffectHook/>
 
-      <div className="App">
-        <Routes>
+          <div className="App">
+            <Routes>
 
-          {/* Home  */}
-          <Route path="/" element={<HomeView/>}/>
+              {/* Home  */}
+              <Route path="/" element={<HomeView/>}/>
 
-          {/* Post view  */}
-          <Route path="/post/:id" element={<PostView/>}/>
+              {/* Post view  */}
+              <Route path="/post/:id" element={<PostView/>}/>
 
-          {/* Login  */}
-          <Route path="/accounts/login" element={<LoginView/>}/>
-
-
-          {/* Register  */}
-          <Route path="/accounts/register" element={<RegisterView/>}/>
-
-          {/* <Route path="accounts/login/:id" element={<LoginView/>}/> Optional Paramater */}
-
-          {/* 404  */}
-          <Route path="*" element={<PageNotFound/>}/>
+              {/* Login  */}
+              <Route path="/accounts/login" element={<LoginView/>}/>
 
 
+              {/* Register  */}
+              <Route path="/accounts/register" element={<RegisterView/>}/>
 
-        </Routes>
-      </div>
+              {/* <Route path="accounts/login/:id" element={<LoginView/>}/> Optional Paramater */}
+
+              {/* 404  */}
+              <Route path="*" element={<PageNotFound/>}/>
+
+
+
+            </Routes>
+          </div>
+
+          
     </Router>
   );
 }

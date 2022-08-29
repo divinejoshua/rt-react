@@ -9,6 +9,7 @@ const UseEffectHook = () => {
 
     // Use Effect hook 
     useEffect(() => {
+        console.log("Yooooo")
         return () => {
     
         // Scroll to top for all pages
