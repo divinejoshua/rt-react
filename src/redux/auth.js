@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import axios from 'axios'
 
 
 // STATES 
@@ -15,14 +14,15 @@ export const userAccessToken = createSlice({
       //User stories list 
       registerAccessToken: (state, action) => {
         state.access_token = action.payload
+        const axios = require('axios')
         
         // Add axios token to axios headers 
-        axios.create({
-            headers: {
-                Authorization : `Bearer ${state.access_token}`
-            }
-        });
-
+        if(state.access_token){
+            // Set axios authorisation headers 
+            axios.defaults.headers.common['Authorization'] = `Bearer ${state.access_token}`
+        } else {
+            axios.defaults.headers.common['Authorization'] = null
+        }
       },
 
   

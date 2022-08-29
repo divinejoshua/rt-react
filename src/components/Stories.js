@@ -9,7 +9,7 @@ import { registerStories } from '../redux/stories'
 export default function Stories() {
 
   // STATES 
-  const {getUsers, data : users, isPending, messageSuccess, messageError} = useUsersList("/users?limit=8")
+  const {getUsers, data : users, isPending, messageSuccess, messageError} = useUsersList("https://dummyjson.com/users?limit=8")
 
   // Redux
 const userStories = useSelector((state) => state.userStories)

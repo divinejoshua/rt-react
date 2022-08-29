@@ -4,7 +4,7 @@ import useUsersList from '../utils/useUsersListHook'
 export default function MainSidebar() {
 
   // STATES 
-  const {getUsers, data : users, isPending, messageSuccess, messageError} = useUsersList("/users?limit=8&skip=5")
+  const {getUsers, data : users, isPending, messageSuccess, messageError} = useUsersList("https://dummyjson.com/users?limit=8&skip=5")
 
   // METHODS 
 

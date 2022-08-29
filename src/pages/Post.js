@@ -21,8 +21,8 @@ const { register, handleSubmit, formState: { errors, isValid }  } = useForm({mod
 const {id} = useParams()
 
 // Get post 
-const {getPosts, likeButtonFunction, data : posts, isPending : isPendingPost, messageSuccess : messageSuccessPost, messageError : messageErrorPost} = usePosts("/posts/"+id, true)
-const {getComments, deleteComment, addComment, data : comments, isPending : isPendingComment, messageSuccess : messageSuccessComment, messageError : messageErrorComment} = useComments("/comments/post/"+id)
+const {getPosts, likeButtonFunction, data : posts, isPending : isPendingPost, messageSuccess : messageSuccessPost, messageError : messageErrorPost} = usePosts("https://dummyjson.com/posts/"+id, true)
+const {getComments, deleteComment, addComment, data : comments, isPending : isPendingComment, messageSuccess : messageSuccessComment, messageError : messageErrorComment} = useComments("https://dummyjson.com/comments/post/"+id)
 
 // Redux
 const userDetails = useSelector((state) => state.userDetails)

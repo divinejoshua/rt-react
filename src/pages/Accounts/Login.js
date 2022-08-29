@@ -44,7 +44,7 @@ const handleLogin = async (data) => {
 
   try {
 
-    let response = await axios.post("http://127.0.0.1:8000/accounts/auth/login/", form)
+    let response = await axios.post("/accounts/auth/login/", form)
 
     // Storing the data in redux
     dispatch(registerEmail(data.email))

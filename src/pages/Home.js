@@ -14,7 +14,7 @@ export default function HomeView() {
 
 // STATES 
 const [pagination, setpagination] = useState(0);
-const {getPosts, likeButtonFunction, data : posts, isPending, messageSuccess, messageError} = usePost("/posts?limit=8&skip="+pagination)
+const {getPosts, likeButtonFunction, data : posts, isPending, messageSuccess, messageError} = usePost("https://dummyjson.com/posts?limit=8&skip="+pagination)
 
 // Pagination elements 
 const observer = useRef()
@@ -62,7 +62,7 @@ const userDetails = useSelector((state) => state.userDetails)
     // Get the logged in user from the backend 
     const getLoggedInUser = async () =>{
       try{
-        let response = await axios.get('http://127.0.0.1:8000/accounts/user')
+        let response = await axios.get('/accounts/user')
         dispatch(registerEmail(response.data.email))
       }
       catch {
