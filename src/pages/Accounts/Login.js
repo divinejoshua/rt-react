@@ -50,8 +50,8 @@ const handleLogin = async (data) => {
     dispatch(registerEmail(data.email))
     dispatch(registerAccessToken(response.data.access_token))
 
-
-    // navigate("/", { replace: true });
+    // Redirect to home page 
+    navigate("/", { replace: true });
     
   
   } catch (e){

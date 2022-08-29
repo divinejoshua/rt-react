@@ -17,9 +17,14 @@ export const userAccessToken = createSlice({
         state.access_token = action.payload
         
         // Add axios token to axios headers 
-        ax
-
+        if(state.access_token){
+            // Set axios authorisation headers 
+            axios.defaults.headers.common['Authorization'] = `Bearer ${state.access_token}`
+        } else {
+            axios.defaults.headers.common['Authorization'] = null
+        }
       },
+
   
     },
   })
