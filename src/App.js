@@ -6,10 +6,16 @@ import HomeView from './pages/Home';
 import PostView from './pages/Post';
 import PageNotFound from './pages/Error/404';
 
+import { useDispatch } from 'react-redux'
+import { registerGetNewToken } from "./redux/auth";
+
 import UseEffectHook from "./utils/UseEffectHook";
 
 
 function App() {
+
+  const dispatch = useDispatch()
+  
 
   // The return render  
   return (
