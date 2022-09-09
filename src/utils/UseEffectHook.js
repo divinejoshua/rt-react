@@ -39,6 +39,73 @@ const UseEffectHook = () => {
 
 
 
+axios.interceptors.response.use(null, (error) => { 
+    if (error.config && error.response && error.response.status === 401) {
+
+        // if (!access_token){ return  navigate("/accounts/login", { from: pathname }, { replace: true })}
+
+        if (error.config.url == "/accounts/auth/token/refresh/") { 
+            dispatch(registerAccessToken(null))
+                // dispatch(registerAccess_token_loader(false))
+            console.log("God is good")
+            localStorage.setItem('refresh', null)
+            return navigate("/accounts/login", { from: pathname }, { replace: true })
+        }
+
+        let response = axios.post("/accounts/auth/token/refresh/", {'refresh': localStorage.getItem('refresh')})
+        dispatch(registerAccessToken(response.data.access))
+        console.log("yooo")
+        error.config.headers.Authorization = `Bearer ${access_token}`
+        return axios.request(error.config);
+
+    }
+});
+
+
+
+
+
+// axios.interceptors.response.use(null, (error) => { 
+    
+
+//   // if the access token is expired
+//     if (error.config && error.response && error.response.status === 401) {
+
+//       // if the url is froms the refresh token
+//       if (error.config.url == "/accounts/auth/token/refresh/") { 
+//         console.log("yopooo")
+
+
+          
+//       //   dispatch(registerAccessToken(null)).then(() =>{
+//       //       dispatch(registerAccess_token_loader(false))
+
+//       //  })
+
+         
+//       //   localStorage.setItem('refresh', null)
+//       //   return
+//       }
+
+
+//       // // if There is no access token 
+//       // if (!access_token){ return  navigate("/accounts/login", { from: pathname }, { replace: true })}
+//       // // Get a new access token 
+//       // return axios.post("/accounts/auth/token/refresh/", {'refresh': localStorage.getItem('refresh')}).then(() =>{
+//       //           dispatch(registerAccessToken(response.data.access)).then(() =>{
+//       //             console.log("yooo")
+//       //             error.config.headers.Authorization = `Bearer ${access_token}`
+//       //             return axios.request(error.config);
+//       //      })
+
+//       // })
+
+//   }
+//     return Promise.reject(error);
+
+    
+// });
+
 
       // Use Effect hook 
       useEffect(() => {

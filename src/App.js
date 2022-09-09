@@ -7,15 +7,12 @@ import PostView from './pages/Post';
 import PageNotFound from './pages/Error/404';
 import AuthToken from './components/AuthToken';
 import UseEffectHook from "./utils/UseEffectHook";
-// import axios from "./api/axios";
+import axios from "./api/axios";
 
 
 function App() {
 
-  // axios.interceptors.response.use(null, (error) => { 
-  //   if (error.config && error.response && error.response.status === 401) {
-  //   }
-  // });
+
 
 
 
