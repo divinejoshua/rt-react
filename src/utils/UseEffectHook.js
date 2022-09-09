@@ -28,9 +28,9 @@ const UseEffectHook = () => {
              
          }
          catch (error){
-            if(error?.response?.status == 401 || error?.response?.status == 400){
-                navigate("/accounts/login", { from: pathname }, { replace: true });
-            }
+            // if(error?.response?.status == 401 || error?.response?.status == 400){
+            //     navigate("/accounts/login", { from: pathname }, { replace: true });
+            // }
 
          }
         
@@ -39,8 +39,9 @@ const UseEffectHook = () => {
 
 
 
-    // Use Effect hook 
-    useEffect(() => {
+
+      // Use Effect hook 
+      useEffect(() => {
         console.log(pathname)
 
         if(!access_token){
@@ -56,6 +57,9 @@ const UseEffectHook = () => {
         }
     }, [pathname])
 
+
+
+
     
    
     return null;
@@ -63,8 +67,7 @@ const UseEffectHook = () => {
  
 
 
-
-
+ 
 
 
 export default UseEffectHook;
