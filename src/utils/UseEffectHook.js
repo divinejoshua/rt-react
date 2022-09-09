@@ -20,7 +20,6 @@ const UseEffectHook = () => {
     const access_token_loader = useSelector((state) => state.userAccessToken.access_token_loader)
 
      const getNewAccessToken = async () =>{
-        if (!localStorage.getItem('refresh')) { navigate("/accounts/login", { from: pathname }, { replace: true }, {search: '?next=pathname',}); }
          try {
              let response = await axios.post("/accounts/auth/token/refresh/", {'refresh': localStorage.getItem('refresh')})
              dispatch(registerAccessToken(response.data.access)).then(() =>{
@@ -30,7 +29,7 @@ const UseEffectHook = () => {
          }
          catch (error){
             if(error?.response?.status == 401 || error?.response?.status == 400){
-                navigate("/accounts/login", { from: pathname }, { replace: true }, {search: '?next=pathname',});
+                navigate("/accounts/login", { from: pathname }, { replace: true });
             }
 
          }
