@@ -21,10 +21,10 @@ const UseEffectHook = () => {
 
      const getNewAccessToken = async () =>{
          try {
-             let response = await axios.post("/accounts/auth/token/refresh/", {'refresh': localStorage.getItem('refresh')})
-             dispatch(registerAccessToken(response.data.access)).then(() =>{
-                dispatch(registerAccess_token_loader(false))
-             })
+            //  let response = await axios.post("/accounts/auth/token/refresh/", {'refresh': localStorage.getItem('refresh')})
+            //  dispatch(registerAccessToken(response.data.access)).then(() =>{
+            //     dispatch(registerAccess_token_loader(false))
+            //  })
              
          }
          catch (error){
@@ -39,27 +39,27 @@ const UseEffectHook = () => {
 
 
 
-axios.interceptors.response.use(null, (error) => { 
-    if (error.config && error.response && error.response.status === 401) {
+// axios.interceptors.response.use(null, (error) => { 
+//     if (error.config && error.response && error.response.status === 401) {
 
-        // if (!access_token){ return  navigate("/accounts/login", { from: pathname }, { replace: true })}
+//         // if (!access_token){ return  navigate("/accounts/login", { from: pathname }, { replace: true })}
 
-        if (error.config.url == "/accounts/auth/token/refresh/") { 
-            dispatch(registerAccessToken(null))
-                // dispatch(registerAccess_token_loader(false))
-            console.log("God is good")
-            localStorage.setItem('refresh', null)
-            return navigate("/accounts/login", { from: pathname }, { replace: true })
-        }
+//         if (error.config.url == "/accounts/auth/token/refresh/") { 
+//             dispatch(registerAccessToken(null))
+//                 // dispatch(registerAccess_token_loader(false))
+//             console.log("God is good")
+//             localStorage.setItem('refresh', null)
+//             return navigate("/accounts/login", { from: pathname }, { replace: true })
+//         }
 
-        let response = axios.post("/accounts/auth/token/refresh/", {'refresh': localStorage.getItem('refresh')})
-        dispatch(registerAccessToken(response.data.access))
-        console.log("yooo")
-        error.config.headers.Authorization = `Bearer ${access_token}`
-        return axios.request(error.config);
+//         let response = axios.post("/accounts/auth/token/refresh/", {'refresh': localStorage.getItem('refresh')})
+//         dispatch(registerAccessToken(response.data.access))
+//         console.log("yooo")
+//         error.config.headers.Authorization = `Bearer ${access_token}`
+//         return axios.request(error.config);
 
-    }
-});
+//     }
+// });
 
 
 
@@ -110,15 +110,7 @@ axios.interceptors.response.use(null, (error) => {
       // Use Effect hook 
       useEffect(() => {
         console.log(pathname)
-
-        if(!access_token){
-            getNewAccessToken()
-        } else {
-            console.log("access token")
-        }
-        // refreshToken()
         return () => {
-    
         // Scroll to top for all pages
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
         }
