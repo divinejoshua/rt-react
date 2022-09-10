@@ -12,6 +12,8 @@ export const AuthProvider = ({children}) => {
     let [authToken, setauthToken] = useState(null)
     let [loading, setLoading] = useState(true)
 
+    const [errorRequest, seterrorRequest] = useState(null);
+
 
     // Pathname
     const { pathname }  = useLocation()   
@@ -55,9 +57,8 @@ export const AuthProvider = ({children}) => {
 
 
     // Axios interceptors
-    axios.interceptors.response.use(null, (error) => { 
+    axios.interceptors.response.use(async error => { 
     if (error.config && error.response && error.response.status === 401) {
-        setLoading(false)
         // if (!authToken){ return }
 
         if (error.config.url == "/accounts/auth/token/refresh/") { 
@@ -66,13 +67,14 @@ export const AuthProvider = ({children}) => {
             return navigate("/accounts/login", { from: pathname }, { replace: true })
         }
 
-        return getNewAccessToken().then(() => {
-            console.log(authToken)
-            error.config.headers.Authorization = `Bearer ${authToken}`
-            // axios.request(error.config);
-            return
-        })
-       
+            // // let response = await axios.post("/accounts/auth/token/refresh/", {'refresh': localStorage.getItem('refresh')})
+            // console.log("Was here")
+            // setAccessToken(response.data.access).then(() =>{
+            //     setLoading(false)
+            //     error.config.headers.Authorization = `Bearer ${response.data}`
+            // })
+
+            // return
 
     }
     return Promise.reject(error);

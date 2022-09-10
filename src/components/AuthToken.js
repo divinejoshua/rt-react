@@ -27,7 +27,7 @@ export default function AuthToken() {
         authToken
             ? <Outlet />
             : loading ? "Loading..."
-            : ""//navigate("/accounts/login", { from: pathname }, { replace: true })
+            : navigate("/accounts/login", { from: pathname }, { replace: true })
     );
 
 }
