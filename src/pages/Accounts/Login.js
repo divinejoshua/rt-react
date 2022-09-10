@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import AuthSidebar from '../../components/AuthSidebar';
@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form"
 import { registerEmail } from '../../redux/user';
 import axios from '../../api/axios';
 import { registerAccessToken } from '../../redux/auth';
+import AuthContext from '../../context/AuthContext'
 
 export default function LoginView() {
   
@@ -53,6 +54,9 @@ const handleLogin = async (data) => {
     // Storing the data in redux
     dispatch(registerEmail(data.email))
     dispatch(registerAccessToken(response.data.access_token))
+
+    //Store in Context API
+
 
     // Set local storage for refresh token 
     localStorage.setItem("refresh", response.data.refresh_token);
