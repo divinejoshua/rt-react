@@ -31,6 +31,8 @@ const { register, handleSubmit, formState: { errors, isValid }  } = useForm({mod
 // Redux
 const dispatch = useDispatch()
 
+// ContextAPI
+const {setAccessToken} = useContext(AuthContext)
 
 // METHODS
 // Login Function on success
@@ -56,6 +58,8 @@ const handleLogin = async (data) => {
     dispatch(registerAccessToken(response.data.access_token))
 
     //Store in Context API
+ 
+    setAccessToken(response.data.access_token)
 
 
     // Set local storage for refresh token 
