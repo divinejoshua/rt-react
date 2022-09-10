@@ -1,17 +1,17 @@
-import { useLocation, Navigate, Outlet } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux'
+import { useLocation, useNavigate, Outlet } from "react-router-dom";
 import { useEffect, useState, useContext} from "react";
 import AuthContext from '../context/AuthContext'
 
 export default function AuthToken() {
 
-    let {AuthToken} = useContext(AuthContext)
-
-    const access_token_loader = useSelector((state) => state.userAccessToken.access_token_loader)
-
-    // Redux 
-    const access_token = useSelector((state) => state.userAccessToken.access_token)
+    let {authToken, loading} = useContext(AuthContext)
     
+    // Pathname
+    const { pathname }  = useLocation()   
+
+    // Use navigate 
+    const navigate = useNavigate();
+
 
 
     //USE EFFECT
@@ -24,10 +24,10 @@ export default function AuthToken() {
 
     return (
    
-        access_token 
+        authToken
             ? <Outlet />
-            : !access_token && access_token_loader ?  'Loading...'
-            : ''
+            : loading ? "Loading..."
+            : ""//navigate("/accounts/login", { from: pathname }, { replace: true })
     );
 
 }
