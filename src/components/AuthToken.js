@@ -1,7 +1,11 @@
 import { useLocation, Navigate, Outlet } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext} from "react";
+import AuthContext from '../context/AuthContext'
+
 export default function AuthToken() {
+
+    let {AuthToken} = useContext(AuthContext)
 
     const access_token_loader = useSelector((state) => state.userAccessToken.access_token_loader)
 
