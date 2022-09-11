@@ -12,8 +12,6 @@ export const AuthProvider = ({children}) => {
     let [authToken, setauthToken] = useState(null)
     let [loading, setLoading] = useState(true)
 
-    const [errorRequest, seterrorRequest] = useState(null);
-
 
     // Pathname
     const { pathname }  = useLocation()   
@@ -31,6 +29,7 @@ export const AuthProvider = ({children}) => {
             // Set the auth token 
             setAccessToken(response.data.access).then(() =>{
                 setLoading(false)
+              
             })
             
         }
@@ -46,40 +45,31 @@ export const AuthProvider = ({children}) => {
 
 
     // Set Access token 
-    const setAccessToken = (access_token) =>{
+    const setAccessToken = async (access_token) =>{
         axios.defaults.headers.common['Authorization'] = `Bearer ${access_token}`
         setauthToken(access_token)
     }
 
 
+        // Axios interceptors
+     axios.interceptors.response.use(null, (error) => { 
+        if (error.config && error.response && error.response.status === 401) {
+            setLoading(false)
+            axios.defaults.headers.common['Authorization'] = null
+            if (!authToken){ return navigate("/accounts/login", { from: pathname }, { replace: true }) }
 
+            if (error.config.url == "/accounts/auth/token/refresh/") { 
+                setauthToken(null)
+                localStorage.setItem('refresh', null)
+                return navigate("/accounts/login", { from: pathname }, { replace: true })
+            }
 
-
-
-    // Axios interceptors
-    axios.interceptors.response.use(async error => { 
-    if (error.config && error.response && error.response.status === 401) {
-        // if (!authToken){ return }
-
-        if (error.config.url == "/accounts/auth/token/refresh/") { 
-            setauthToken(null)
-            localStorage.setItem('refresh', null)
-            return navigate("/accounts/login", { from: pathname }, { replace: true })
         }
-
-            // // let response = await axios.post("/accounts/auth/token/refresh/", {'refresh': localStorage.getItem('refresh')})
-            // console.log("Was here")
-            // setAccessToken(response.data.access).then(() =>{
-            //     setLoading(false)
-            //     error.config.headers.Authorization = `Bearer ${response.data}`
-            // })
-
-            // return
-
-    }
-    return Promise.reject(error);
+        
+        return Promise.reject(error);
 
 });
+
 
 
 
@@ -102,6 +92,25 @@ export const AuthProvider = ({children}) => {
         }
 
     }, [pathname])
+
+
+    //  Refresh for access token every 2 minutes
+    useEffect(()=> {
+        if(!authToken && loading){
+            setInterval(function() {
+
+                getNewAccessToken()
+            },
+            1 * 60 * 1000);
+
+        } else {
+            console.log("access token")
+        }
+
+    }, [pathname])
+
+
+
 
     return(
         <AuthContext.Provider value={contextData} >

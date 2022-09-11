@@ -50,8 +50,8 @@ const handleLogin = async (data) => {
   }
 
   try {
-
     let response = await axios.post("/accounts/auth/login/", form)
+    console.log("yoho")
 
     // Storing the data in redux
     dispatch(registerEmail(data.email))
@@ -70,7 +70,7 @@ const handleLogin = async (data) => {
     
   
   } catch (e){
-
+    console.log(e)
     setformError(true)
     handleError()
   
