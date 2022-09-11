@@ -50,7 +50,7 @@ const handleLogin = async (data) => {
   }
 
   try {
-    let response = await axios.post("/accounts/auth/login/", form,)
+    let response = await axios.post("/accounts/auth/login/", form)
     console.log("yoho")
 
     // Storing the data in redux

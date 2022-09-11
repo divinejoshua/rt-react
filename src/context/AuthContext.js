@@ -26,7 +26,7 @@ export const AuthProvider = ({children}) => {
         try {
             setLoading(true)
             let response = await axios.post("/accounts/auth/token/refresh/", {'refresh': localStorage.getItem('refresh')})
-            // let response = await axios.post("/accounts/auth/token/refresh/")
+          
             // Set the auth token 
             setAccessToken(response.data.access).then(() =>{
                 setLoading(false)
