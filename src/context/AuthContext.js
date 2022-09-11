@@ -26,6 +26,7 @@ export const AuthProvider = ({children}) => {
         try {
             setLoading(true)
             let response = await axios.post("/accounts/auth/token/refresh/", {'refresh': localStorage.getItem('refresh')})
+            // let response = await axios.post("/accounts/auth/token/refresh/")
             // Set the auth token 
             setAccessToken(response.data.access).then(() =>{
                 setLoading(false)
@@ -56,10 +57,11 @@ export const AuthProvider = ({children}) => {
         if (error.config && error.response && error.response.status === 401) {
             setLoading(false)
             axios.defaults.headers.common['Authorization'] = null
+            setauthToken(null)
+
             if (!authToken){ return navigate("/accounts/login", { from: pathname }, { replace: true }) }
 
             if (error.config.url == "/accounts/auth/token/refresh/") { 
-                setauthToken(null)
                 localStorage.setItem('refresh', null)
                 return navigate("/accounts/login", { from: pathname }, { replace: true })
             }

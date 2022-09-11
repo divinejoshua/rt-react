@@ -50,7 +50,7 @@ const handleLogin = async (data) => {
   }
 
   try {
-    let response = await axios.post("/accounts/auth/login/", form)
+    let response = await axios.post("/accounts/auth/login/", form,)
     console.log("yoho")
 
     // Storing the data in redux
@@ -63,7 +63,7 @@ const handleLogin = async (data) => {
 
 
     // Set local storage for refresh token 
-    localStorage.setItem("refresh", response.data.refresh_token);
+    localStorage.setItem("refresh", response.data.refresh_token?response.data.refresh_token:null);
 
     // Redirect to home page 
     navigate(from, { replace: true });
