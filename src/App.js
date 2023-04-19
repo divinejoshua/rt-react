@@ -4,6 +4,7 @@ import LoginView from './pages/Accounts/Login';
 import RegisterView from './pages/Accounts/Register';
 import HomeView from './pages/Home';
 import PostView from './pages/Post';
+import DataView from './pages/Data'
 import PageNotFound from './pages/Error/404';
 import AuthToken from './components/AuthToken';
 import { AuthProvider} from './context/AuthContext';
@@ -40,6 +41,9 @@ function App() {
 
                       {/* Register  */}
                       <Route path="/accounts/register" element={<RegisterView/>}/>
+
+                       {/* Mock Data  */}
+                      <Route path="/data" element={<DataView/>}/>
 
                       {/* <Route path="accounts/login/:id" element={<LoginView/>}/> Optional Paramater */}
 
