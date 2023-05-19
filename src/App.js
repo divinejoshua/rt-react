@@ -22,7 +22,7 @@ function App() {
 
       <UseEffectHook/>
 
-      <div className="App" >
+      <div className="App">
 
         {/* Auth provider  */}
           <AuthProvider>
