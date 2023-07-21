@@ -18,7 +18,7 @@ const [clickSearchFirst, setclickSearchFirst] = useState(true);
 const { register, handleSubmit, watch, formState: { errors, isDirty }  } = useForm({mode: 'all'});
 const watchFields = watch(["search"]);
 
-const {getUsers, data : users, isPending, messageSuccess, messageError} = useUsersList("/users/search?limit=4&q="+watchFields[0])
+const {getUsers, data : users, isPending, messageSuccess, messageError} = useUsersList("https://dummyjson.com/users/search?limit=4&q="+watchFields[0])
 
 //METHODS
 const handleSearch = (event) =>{
