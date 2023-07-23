@@ -26,12 +26,11 @@ const userDetails = useSelector((state) => state.userDetails)
 
 
 //METHODS
-    const updatePosts = () => {
+    const updatePosts = useCallback(() => {
       if(pagination > 80 || isPending){ return }
       setpagination((prevpagination) => prevpagination + 8)
-        console.log(pagination)
       getPosts(pagination)
-    }
+    })
 
 
     // Get the last element to be rendered in the list 
@@ -62,11 +61,11 @@ const userDetails = useSelector((state) => state.userDetails)
     // Get the logged in user from the backend 
     const getLoggedInUser = async () =>{
       try{
-        let response = await axios.get('/accounts/user')
+        let response = await axios.get('/accounts/user/')
         dispatch(registerEmail(response.data.email))
       }
       catch {
-        console.log("An error occured")
+        // console.log("An error occured")
       }
 
     }
@@ -77,7 +76,6 @@ const userDetails = useSelector((state) => state.userDetails)
   
 //USE EFFECT
 useEffect(() => {
-  console.log("home")
   getLoggedInUser()
   
   // Get post list 

@@ -16,8 +16,6 @@ export default function AuthToken() {
 
     //USE EFFECT
     useEffect(() => {
-    console.log("AuthToken")
-
     return () => {
     }
 }, [])

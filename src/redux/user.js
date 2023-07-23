@@ -21,7 +21,7 @@ export const userDetails = createSlice({
 
     // This reducer function is a test whic is called immediately a reducer function is done 
     testEmail: (state, action) => {
-        console.log(action.payload)
+        // console.log(action.payload)
       },
 
   },

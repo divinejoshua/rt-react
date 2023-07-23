@@ -25,7 +25,9 @@ export const AuthProvider = ({children}) => {
     const getNewAccessToken = async () =>{
         try {
             setLoading(true)
-            let response = await axios.post("/accounts/auth/token/refresh/", {'refresh': localStorage.getItem('refresh')})
+
+            // NOTE: Check for the refresh token from localStorage. If it is null, create a random string value 
+            let response = await axios.post("/accounts/auth/token/refresh/", {'refresh': localStorage.getItem('refresh') ? localStorage.getItem('refresh') : "none"})
           
             // Set the auth token 
             setAccessToken(response.data.access).then(() =>{
@@ -59,11 +61,14 @@ export const AuthProvider = ({children}) => {
             axios.defaults.headers.common['Authorization'] = null
             setauthToken(null)
 
+            // If there is no auth token 
+             // NOTE: Check for the refresh token from localStorage. If it is null, create a random string value 
             if (!authToken){ return navigate("/accounts/login", { from: pathname }, { replace: true }) }
 
-            if (error.config.url == "/accounts/auth/token/refresh/") { 
+                // Check if the error is coming from the refresh token api 
+            if (error.config.url === "/accounts/auth/token/refresh/",  {'refresh': localStorage.getItem('refresh') ? localStorage.getItem('refresh') : "none"}) { 
                 localStorage.setItem('refresh', null)
-                return navigate("/accounts/login", { from: pathname }, { replace: true })
+                // return navigate("/accounts/login", { from: pathname }, { replace: true })
             }
 
         }
@@ -90,7 +95,6 @@ export const AuthProvider = ({children}) => {
         if(!authToken && loading){
             getNewAccessToken()
         } else {
-            console.log("access token")
         }
 
     }, [pathname])
@@ -98,16 +102,7 @@ export const AuthProvider = ({children}) => {
 
     //  Refresh for access token every 2 minutes
     useEffect(()=> {
-        if(!authToken && loading){
-            setInterval(function() {
-
-                getNewAccessToken()
-            },
-            1 * 60 * 1000);
-
-        } else {
-            console.log("access token")
-        }
+  
 
     }, [pathname])
 

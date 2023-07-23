@@ -51,7 +51,6 @@ const handleLogin = async (data) => {
 
   try {
     let response = await axios.post("/accounts/auth/login/", form)
-    console.log("yoho")
 
     // Storing the data in redux
     dispatch(registerEmail(data.email))
@@ -70,7 +69,6 @@ const handleLogin = async (data) => {
     
   
   } catch (e){
-    console.log(e)
     setformError(true)
     handleError()
   
@@ -93,7 +91,6 @@ const handleError = (errors) => {
 
   setTimeout(() => { 
     setformAuthBtnError(false)
-    console.log("Validation error")
   }, 200)
   
 };
@@ -112,7 +109,6 @@ const formValidation = {
 
 //USE EFFECT
 useEffect(() => {
-  console.log("login")
 
   // Validate the form on page load
   handleSubmit(handleLogin)
